@@ -144,7 +144,7 @@ public class PlayerScript : MonoBehaviour
             //transform.position += Vector3.up * 2;
 
             //’ŒƒWƒƒƒ“ƒv
-            playerRb.AddForce(Vector3.up * jumpPower * 4 * jumpValue);
+            playerRb.AddForce(Vector3.up * jumpPower * 1.5f * jumpValue);
         }
         else
         {

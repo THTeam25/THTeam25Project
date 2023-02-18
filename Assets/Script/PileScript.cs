@@ -7,7 +7,7 @@ public class PileScript : MonoBehaviour
     //PlayerScript
     private PlayerScript pS;
     //ぶつかった杭
-    public GameObject hitPile;
+    //public GameObject hitPile;
     //triggerflag
     private bool trigger = false;
 
@@ -25,6 +25,9 @@ public class PileScript : MonoBehaviour
         if (pS.isPile)
         {
             GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerScript>().hitPile.transform.position;
+
+            //柱につかまっているときは速度をゼロにする
+            GameObject.Find("Player").GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 
@@ -35,6 +38,8 @@ public class PileScript : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerScript>().isPile = true;
             GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = gameObject;
+            
+            
             //地面フラグオン
             //other.gameObject.GetComponent<PlayerScript>().isGround = true;
         }
