@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PileScript : MonoBehaviour
+{
+    //PlayerScript
+    private PlayerScript pS;
+    //ぶつかった杭
+    public GameObject hitPile;
+    //triggerflag
+    private bool trigger = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        pS = GameObject.Find("Player").GetComponent<PlayerScript>();    
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        pS = GameObject.Find("Player").GetComponent<PlayerScript>();
+        //Playerの柱フラグがオンになっていたら位置固定
+        if (pS.isPile)
+        {
+            GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerScript>().hitPile.transform.position;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //ぶつかったPlayerの柱フラグをオンにする
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerScript>().isPile = true;
+            GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = gameObject;
+            //地面フラグオン
+            //other.gameObject.GetComponent<PlayerScript>().isGround = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //ぶつかったPlayerの柱フラグをオンにする
+        if (other.gameObject.CompareTag("Player") && !trigger)
+        {
+           
+            //地面フラグオン
+            //other.gameObject.GetComponent<PlayerScript>().isGround = true;
+        }
+    }
+
+
+}
