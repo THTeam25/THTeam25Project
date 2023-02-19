@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "e6f7fda6-d6e3-45b2-b7b3-854ae800476d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Tire Charge",
@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "JumpCharge",
+                    "type": "Value",
+                    "id": "6133f7f1-a5e7-4243-8c76-32f27c000991",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -291,21 +300,65 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "2a15c6c1-56e0-4b60-b621-6756e655ceb3",
-                    "path": "<Keyboard>/k",
-                    "interactions": "Press(behavior=1)",
+                    "name": "2D Vector",
+                    "id": "ccf07512-065d-4065-acb0-206f96cf4077",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "6aa0fadd-45fc-4d9c-9448-572e06ce3eb2",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Jump",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e34efd60-be55-417b-8abe-4fad69fd6753",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "7e759309-096a-4858-bd2b-2cb9ce59d677",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "5f5747a2-d40a-4375-babb-16ee96357d1a",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "b6725fbf-a51d-465e-9549-50deded8c3d0",
-                    "path": "<Gamepad>/rightStick/down",
-                    "interactions": "Press(behavior=1)",
+                    "id": "2a593d23-939c-45d5-9f93-88bea463447b",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
@@ -419,6 +472,72 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "LeftUseTire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "6ae64e15-2b5b-4211-a84c-946ef70b6fdb",
+                    "path": "2DVector",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpCharge",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "fdea6ed3-9c11-4d9e-b18c-9da99ae4e775",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "JumpCharge",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "5e70517a-600f-41ba-aada-f1f52a82e1b1",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "JumpCharge",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "48cefeeb-9dfd-4924-9d2e-23cacf922119",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "JumpCharge",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "62db127f-bded-40b3-9d17-10830149bf1f",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "JumpCharge",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e4299b24-894a-4850-906e-bb2475bfbc28",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "JumpCharge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

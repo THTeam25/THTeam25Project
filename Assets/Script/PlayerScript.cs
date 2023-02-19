@@ -19,8 +19,11 @@ public class PlayerScript : MonoBehaviour
     //ヒット下杭
     public GameObject hitPile;
 
+    //杭ジャンプ方向
+    public Vector3 pileJumpVector;
 
-
+    //PlayerInput
+    public PlayerInput playerInput;
 
     //パワーアップタイプ
     public PowerUpScript.PowerUp powerUpType;
@@ -40,6 +43,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
@@ -48,10 +52,10 @@ public class PlayerScript : MonoBehaviour
         //移動
         Move();
 
-        
 
-        //ジャンプため
-        if(jumpChargeFlag)
+
+        ////ジャンプため
+        if (jumpChargeFlag)
         {
             ChargeJump();
         }
@@ -72,32 +76,35 @@ public class PlayerScript : MonoBehaviour
         transform.Translate(Vector3.forward * speed * leftX * Time.deltaTime);
     }
 
-    //ジャンプ押されたら
+    //ジャンプボタンが話されたられたら
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(isGround || isPile)
-        {
-            //ジャンプチャージフラグオン
-            jumpChargeFlag = true;
-        }
-        else
-        {
-            //ジャンプチャージフラグオフ
-            jumpChargeFlag = false;
-        }
+        //if(isGround || isPile)
+        //{
+        //    //ジャンプチャージフラグオン
+        //    jumpChargeFlag = true;
+        //}
+        //else
+        //{
+        //    //ジャンプチャージフラグオフ
+        //    jumpChargeFlag = false;
+        //}
+
+
         
 
-
-
-        if(context.performed)
+        if (context.performed)
         {
             //ジャンプ
             Jump();
+
+            jumpChargeFlag = false;
+            jumpValue = 0;
         }
     }
 
     //ジャンプため
-    void ChargeJump()
+    public void ChargeJump()
     {
         //地上にいる間だけ加算
         if(isGround || isPile)
@@ -109,14 +116,32 @@ public class PlayerScript : MonoBehaviour
             {
                 jumpValue = maxJumpValue;
             }
+
+            //柱ジャンプベクトル取得
+            pileJumpVector.y = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
+            pileJumpVector.z = playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
+            //柱ジャンプベクトル反転
+            pileJumpVector *= -1;
         }
-        else
-        {
-            //初期化
-            jumpChargeFlag = false;
-            jumpValue = 0;
-        }
+
         
+    }
+    
+    //ジャンプチャージボタンが押されたら
+    public void OnChargeJump(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            //地上か柱にいる間だけ
+            if (isGround || isPile)
+            {
+                //初期化
+                jumpChargeFlag = true;
+
+                
+            }
+        }
+
     }
 
     //ジャンプ
@@ -144,7 +169,7 @@ public class PlayerScript : MonoBehaviour
             //transform.position += Vector3.up * 2;
 
             //柱ジャンプ
-            playerRb.AddForce(Vector3.up * jumpPower * 1.5f * jumpValue);
+            playerRb.AddForce(pileJumpVector * jumpPower * 1.5f * jumpValue);
         }
         else
         {
