@@ -53,11 +53,20 @@ public class PlayerScript : MonoBehaviour
         Move();
 
 
-
-        ////ジャンプため
+        //柱か地上にいなければフラグオフ
+        if(!(isGround || isPile))
+        {
+            jumpChargeFlag = false;
+        }
+        
         if (jumpChargeFlag)
         {
+            //ジャンプため
             ChargeJump();
+        }
+        else 
+        {
+            jumpValue = 0;
         }
     }
 
@@ -123,6 +132,10 @@ public class PlayerScript : MonoBehaviour
             //柱ジャンプベクトル反転
             pileJumpVector *= -1;
         }
+        else
+        {
+            jumpValue = 0.0f;
+        }
 
         
     }
@@ -135,10 +148,16 @@ public class PlayerScript : MonoBehaviour
             //地上か柱にいる間だけ
             if (isGround || isPile)
             {
-                //初期化
+                //フラグオン
                 jumpChargeFlag = true;
 
-                
+
+            }
+            else
+            {
+                //フラグオフ
+                jumpChargeFlag = false;
+
             }
         }
 
@@ -180,7 +199,6 @@ public class PlayerScript : MonoBehaviour
 
         //フラグオフ
         jumpChargeFlag = false;
-
         //初期化
         jumpValue = 0;
     }
