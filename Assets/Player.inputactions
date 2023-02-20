@@ -33,12 +33,21 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "KeyboardJump",
+                    "type": "Button",
+                    "id": "a362bffb-9246-40ee-9bd7-f677f6798280",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Jump",
                     "type": "Value",
                     "id": "e6f7fda6-d6e3-45b2-b7b3-854ae800476d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Press(pressPoint=0.9,behavior=1)",
+                    "interactions": "Press(pressPoint=0.1,behavior=1)",
                     "initialStateCheck": true
                 },
                 {
@@ -300,65 +309,10 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "ccf07512-065d-4065-acb0-206f96cf4077",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "6aa0fadd-45fc-4d9c-9448-572e06ce3eb2",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "e34efd60-be55-417b-8abe-4fad69fd6753",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "7e759309-096a-4858-bd2b-2cb9ce59d677",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "5f5747a2-d40a-4375-babb-16ee96357d1a",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "2a593d23-939c-45d5-9f93-88bea463447b",
                     "path": "<Gamepad>/rightStick",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.9,behavior=1)",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
@@ -538,6 +492,50 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "JumpCharge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79fe91cd-8e7b-4bc1-b80a-ccf39600ced4",
+                    "path": "<Keyboard>/i",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "KeyboardJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a079b25-0bc8-4308-b40b-46c848e99a9e",
+                    "path": "<Keyboard>/l",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "KeyboardJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8df47d5-f615-4cdc-ac56-154423549fce",
+                    "path": "<Keyboard>/j",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "KeyboardJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "862601eb-d1fa-4140-ae96-3cae29827493",
+                    "path": "<Keyboard>/k",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "KeyboardJump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

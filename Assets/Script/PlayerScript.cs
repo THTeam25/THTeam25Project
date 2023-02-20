@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
 
     //杭ジャンプ方向
     public Vector3 pileJumpVector;
-
+    public float nomalJumpinput;
     //PlayerInput
     public PlayerInput playerInput;
 
@@ -90,10 +90,14 @@ public class PlayerScript : MonoBehaviour
     //ジャンプボタンが話されたられたら
     public void OnJump(InputAction.CallbackContext context)
     {
+
+       
  
         //地面か柱にいなければジャンプする
         if (context.performed && (isGround || isPile))
         {
+            
+
             //ジャンプ
             Jump();
 
@@ -121,6 +125,8 @@ public class PlayerScript : MonoBehaviour
             pileJumpVector.z = playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
             //柱ジャンプベクトル反転
             pileJumpVector *= -1;
+            //通常ジャンプ入力値
+            nomalJumpinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
         }
         else
         {
@@ -149,6 +155,8 @@ public class PlayerScript : MonoBehaviour
                 jumpChargeFlag = false;
 
             }
+
+            
         }
 
     }
@@ -156,18 +164,16 @@ public class PlayerScript : MonoBehaviour
     //ジャンプ
     void Jump()
     {
-        //jumpvalue調整
-        if (jumpValue > maxJumpValue)
-        {
-            jumpValue = 1;
-        }
-        else
-        {
-            jumpValue = jumpValue / maxJumpValue;
-        }
 
-        if(isPile)
+       
+        if (isPile)
         {
+            ////柱ジャンプベクトル取得
+            //pileJumpVector.y = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
+            //pileJumpVector.z = playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
+            ////柱ジャンプベクトル反転
+            //pileJumpVector *= -1;
+
             //柱フラグオフ
             isPile = false;
             ////コライダーオフ
@@ -178,12 +184,20 @@ public class PlayerScript : MonoBehaviour
             //transform.position += Vector3.up * 2;
 
             //柱ジャンプ
-            playerRb.AddForce(pileJumpVector * jumpPower * 1.5f * jumpValue);
+            playerRb.AddForce(pileJumpVector * jumpPower * 1.5f);
+
+            
         }
         else
         {
+            
+            if(nomalJumpinput <0)
+            {
+                nomalJumpinput *= -1;
+            }
+
             //通常ジャンプ
-            playerRb.AddForce(Vector3.up * jumpPower * jumpValue);
+            playerRb.AddForce(Vector3.up * jumpPower * nomalJumpinput);
         }
         
 
