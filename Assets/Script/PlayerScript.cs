@@ -83,6 +83,8 @@ public class PlayerScript : MonoBehaviour
     {
         
         transform.Translate(new Vector3(0,0,1) * speed * leftX * Time.deltaTime,Space.World);
+
+        transform.Rotate(new Vector3(1,0,0) * leftX, Space.World);
     }
 
     //ジャンプボタンが話されたられたら
@@ -169,7 +171,7 @@ public class PlayerScript : MonoBehaviour
             //柱フラグオフ
             isPile = false;
             ////コライダーオフ
-            GetComponent<BoxCollider>().enabled = false;
+            GetComponent<SphereCollider>().enabled = false;
 
             Invoke("ColiiderEnable", 0.2f);
 
@@ -225,7 +227,7 @@ public class PlayerScript : MonoBehaviour
     private void ColiiderEnable()
     {
         //コライダー設定オン
-        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<SphereCollider>().enabled = true;
     }
     
 }
