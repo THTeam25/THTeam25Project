@@ -22,6 +22,7 @@ public class PileScript : MonoBehaviour
     {
         pS = GameObject.Find("Player").GetComponent<PlayerScript>();
         //Playerの柱フラグがオンになっていたら位置固定
+        //
         if (pS.isPile)
         {
             GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerScript>().hitPile.transform.position;
