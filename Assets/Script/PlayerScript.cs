@@ -88,21 +88,9 @@ public class PlayerScript : MonoBehaviour
     //ジャンプボタンが話されたられたら
     public void OnJump(InputAction.CallbackContext context)
     {
-        //if(isGround || isPile)
-        //{
-        //    //ジャンプチャージフラグオン
-        //    jumpChargeFlag = true;
-        //}
-        //else
-        //{
-        //    //ジャンプチャージフラグオフ
-        //    jumpChargeFlag = false;
-        //}
-
-
-        
-
-        if (context.performed)
+ 
+        //地面か柱にいなければジャンプする
+        if (context.performed && (isGround || isPile))
         {
             //ジャンプ
             Jump();
