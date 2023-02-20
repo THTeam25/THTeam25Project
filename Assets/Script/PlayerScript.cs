@@ -82,7 +82,7 @@ public class PlayerScript : MonoBehaviour
     void Move()
     {
         
-        transform.Translate(Vector3.forward * speed * leftX * Time.deltaTime);
+        transform.Translate(new Vector3(0,0,1) * speed * leftX * Time.deltaTime,Space.World);
     }
 
     //ジャンプボタンが話されたられたら
