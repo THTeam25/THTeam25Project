@@ -7,9 +7,6 @@ public class PileScript : MonoBehaviour
     //PlayerScript
     private PlayerScript pS;
     //ぶつかった杭
-    //public GameObject hitPile;
-    //triggerflag
-    private bool trigger = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +20,7 @@ public class PileScript : MonoBehaviour
         pS = GameObject.Find("Player").GetComponent<PlayerScript>();
         //Playerの柱フラグがオンになっていたら位置固定
         //
-        if (pS.isPile)
+        if (pS.isSeize && pS.hitPile)
         {
             GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerScript>().hitPile.transform.position;
 
@@ -49,9 +46,9 @@ public class PileScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //ぶつかったPlayerの柱フラグをオンにする
-        if (other.gameObject.CompareTag("Player") && !trigger)
+        if (other.gameObject.CompareTag("Player"))
         {
-           
+            GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = null;
             //地面フラグオン
             //other.gameObject.GetComponent<PlayerScript>().isGround = true;
         }

@@ -47,7 +47,7 @@
                     "id": "e6f7fda6-d6e3-45b2-b7b3-854ae800476d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Press(pressPoint=0.7,behavior=1)",
                     "initialStateCheck": true
                 },
                 {
@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Seize",
+                    "type": "Button",
+                    "id": "f9ad0446-19f2-43dd-b7b9-484d95a821ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -312,7 +321,7 @@
                     "name": "",
                     "id": "2a593d23-939c-45d5-9f93-88bea463447b",
                     "path": "<Gamepad>/rightStick",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Press(pressPoint=0.7,behavior=1)",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
@@ -536,6 +545,39 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "KeyboardJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4de1fc4c-a84b-4b98-b606-6518af82c3cb",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Seize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9d2e074-aa1b-45a0-bf7e-d3467c0a074b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Seize",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e589d44a-34a1-4f26-8a41-fb54c02410a7",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Seize",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

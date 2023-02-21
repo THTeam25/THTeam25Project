@@ -32,9 +32,10 @@ public class PlayerScript : MonoBehaviour
     public bool jumpChargeFlag = false;
     //地上フラグ
     public bool isGround;
-    //柱にぶら下がっているか
+    //柱にトリガーしているか
     public bool isPile = false;
-   
+    //柱をつかんでいるか
+    public bool isSeize = false;
 
     //リジットボディ
     private Rigidbody playerRb;
@@ -54,7 +55,7 @@ public class PlayerScript : MonoBehaviour
 
 
         //柱か地上にいなければフラグオフ
-        if(!(isGround || isPile))
+        if(!(isGround || isSeize))
         {
             jumpChargeFlag = false;
         }
@@ -94,7 +95,7 @@ public class PlayerScript : MonoBehaviour
        
  
         //地面か柱にいなければジャンプする
-        if (context.performed && (isGround || isPile))
+        if (context.performed && (isGround || isSeize))
         {
             
 
@@ -110,7 +111,7 @@ public class PlayerScript : MonoBehaviour
     public void ChargeJump()
     {
         //地上にいる間だけ加算
-        if(isGround || isPile)
+        if(isGround || isSeize)
         {
             //柱ジャンプベクトル取得
             pileJumpVector.y = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
@@ -134,7 +135,7 @@ public class PlayerScript : MonoBehaviour
         if (context.started)
         {
             //地上か柱にいる間だけ
-            if (isGround || isPile)
+            if (isGround || isSeize)
             {
                 //フラグオン
                 jumpChargeFlag = true;
@@ -159,10 +160,13 @@ public class PlayerScript : MonoBehaviour
         //ベロシティを0にする
         GetComponent<Rigidbody>().velocity = Vector3.zero;
        
-        if (isPile)
+        if (isSeize)
         {
             //柱フラグオフ
             isPile = false;
+            //掴みフラグオフ
+            isSeize = false;
+
             ////コライダーオフ
             GetComponent<SphereCollider>().enabled = false;
 
@@ -171,7 +175,7 @@ public class PlayerScript : MonoBehaviour
             //transform.position += Vector3.up * 2;
 
             //柱ジャンプ
-            playerRb.AddForce(pileJumpVector * jumpPower * 1.5f);
+            playerRb.AddForce(pileJumpVector * (jumpPower * pileJumpVector.magnitude) * 1.5f);
 
             //ヒットした柱をnullにする
             hitPile = null;
@@ -191,7 +195,8 @@ public class PlayerScript : MonoBehaviour
             //通常ジャンプ
             playerRb.AddForce(Vector3.up * jumpPower * nomalJumpinput);
 
-            
+            //地上フラグオフ
+            isGround = false;
         }
         
 
@@ -236,6 +241,26 @@ public class PlayerScript : MonoBehaviour
     {
         //コライダー設定オン
         GetComponent<SphereCollider>().enabled = true;
+    }
+
+    //掴む
+    public void OnSeize(InputAction.CallbackContext context)
+    {
+        //ボタンが押されたら
+        if(context.started)
+        {
+            //柱にトリガーしていて掴んでいなければ掴む
+            if (isPile && !isSeize)
+            {
+                isSeize = true;
+            }
+            //掴んでいれば放す
+            else if (isSeize)
+            {
+                isSeize = false;
+            }
+        }
+        
     }
     
 }
