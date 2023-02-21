@@ -21,8 +21,17 @@ public class PlayerScript : MonoBehaviour
 
     //杭ジャンプ方向
     public Vector3 pileJumpVector;
-    public float nomalJumpinput;
-    //PlayerInput
+
+    //デフォルトスケール
+    private float defaultScaleY;
+    //通常ジャンプの強さ
+    private float nomalJumpinput;
+    //最大何倍まで伸びるか
+    public float maxExtend = 3.0f;
+    //どれくらい伸びたか
+    private float extendValue = 0.0f;
+    
+    //コントローラーの入力情報
     public PlayerInput playerInput;
 
     //パワーアップタイプ
@@ -43,8 +52,12 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //コンポーネント取得
         playerRb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
+
+        //スケール取得
+        defaultScaleY = transform.localScale.y;
     }
 
     // Update is called once per frame
@@ -53,13 +66,12 @@ public class PlayerScript : MonoBehaviour
         //移動
         Move();
 
-
         //柱か地上にいなければフラグオフ
-        if(!(isGround || isSeize))
+        if (!(isGround || isSeize))
         {
             jumpChargeFlag = false;
         }
-        
+
         if (jumpChargeFlag)
         {
             //ジャンプため
@@ -85,7 +97,7 @@ public class PlayerScript : MonoBehaviour
         
         transform.Translate(new Vector3(0,0,1) * speed * leftX * Time.deltaTime,Space.World);
 
-        transform.Rotate(new Vector3(1,0,0) * leftX, Space.World);
+       
     }
 
     //ジャンプボタンが話されたられたら
@@ -118,6 +130,13 @@ public class PlayerScript : MonoBehaviour
             pileJumpVector.z = playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
             //柱ジャンプベクトル反転
             pileJumpVector *= -1;
+
+            //掴んでいたら入力に沿ってPlayer伸ばす
+            if (isSeize && hitPile)
+            {
+                Extend();
+            }
+
             //通常ジャンプ入力値
             nomalJumpinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude;
         }
@@ -157,8 +176,6 @@ public class PlayerScript : MonoBehaviour
     //ジャンプ
     void Jump()
     {
-        //ベロシティを0にする
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
        
         if (isSeize)
         {
@@ -167,20 +184,11 @@ public class PlayerScript : MonoBehaviour
             //掴みフラグオフ
             isSeize = false;
 
-            ////コライダーオフ
-            GetComponent<SphereCollider>().enabled = false;
-
-            Invoke("ColiiderEnable", 0.2f);
-
-            //transform.position += Vector3.up * 2;
-
             //柱ジャンプ
             playerRb.AddForce(pileJumpVector * (jumpPower * pileJumpVector.magnitude) * 1.5f);
 
-            //ヒットした柱をnullにする
-            hitPile = null;
-
-            
+            //伸ばしを元に戻す
+            FinishExtend();
 
         }
         else
@@ -213,6 +221,8 @@ public class PlayerScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             isGround = true;
+
+            playerRb.velocity = Vector3.zero;
         }
 
         //パワーアップアイテムに当たったら
@@ -236,12 +246,7 @@ public class PlayerScript : MonoBehaviour
     //地面フラグ取得
     public bool GetIsGround() { return isGround; }
 
-    //コライダーイネーブル Invoke用
-    private void ColiiderEnable()
-    {
-        //コライダー設定オン
-        GetComponent<SphereCollider>().enabled = true;
-    }
+
 
     //掴む
     public void OnSeize(InputAction.CallbackContext context)
@@ -254,13 +259,57 @@ public class PlayerScript : MonoBehaviour
             {
                 isSeize = true;
             }
-            //掴んでいれば放す
-            else if (isSeize)
-            {
-                isSeize = false;
-            }
+            ////掴んでいれば放す
+            //else if (isSeize)
+            //{
+            //    isSeize = false;
+            //}
         }
         
     }
     
+    //Player伸ばす
+    private void Extend()
+    {
+        //代入するyスケール計算
+        extendValue = playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude * maxExtend;
+        extendValue += 1;
+        Vector3 tempScal = transform.localScale;
+        tempScal.y = defaultScaleY * extendValue;
+
+        //スケール代入
+        transform.localScale = tempScal;
+
+        //入力に合わせてPlayerを回転
+        Vector3 tempRot = new Vector3(0, 90, 0);
+        float xinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
+        float yinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
+
+        tempRot.z = Mathf.Atan2(xinput, yinput) * Mathf.Rad2Deg;
+
+        transform.RotateAround(hitPile.transform.position,new Vector3(0,0,1), tempRot.z);
+
+        transform.rotation = Quaternion.Euler(tempRot);
+    }
+
+    //Player伸ばす終了
+    private void FinishExtend()
+    {
+        Vector3 tempscal = transform.localScale;
+        tempscal.y = defaultScaleY;
+
+        //Playerのスケールを元に戻す
+        transform.localScale = tempscal;
+        //かけ合わせるyスケールを1に戻す
+        extendValue = 1;
+
+        //角度を元に戻す
+        Vector3 tempRot = transform.rotation.eulerAngles;
+        tempRot.z = 0;
+        transform.rotation = Quaternion.Euler(tempRot);
+
+    }
+
+    //どれくらい伸びたか返す
+    public float GetExtendValue() { return extendValue; }
 }

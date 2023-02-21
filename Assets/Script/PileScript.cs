@@ -6,7 +6,8 @@ public class PileScript : MonoBehaviour
 {
     //PlayerScript
     private PlayerScript pS;
-    //ぶつかった杭
+    //
+    private float playerPositionOffset = 0.3f; 
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,14 @@ public class PileScript : MonoBehaviour
         //
         if (pS.isSeize && pS.hitPile)
         {
-            GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerScript>().hitPile.transform.position;
+            //柱に入力に応じたPlayer位置固定
+            float x = pS.playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
+            float y = pS.playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
+
+            Vector3 rotateVector = new Vector3(0,y,x);
+            GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerScript>().hitPile.transform.position +
+                rotateVector * playerPositionOffset * pS.GetExtendValue();
+
 
             //柱につかまっているときは速度をゼロにする
             GameObject.Find("Player").GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -34,12 +42,9 @@ public class PileScript : MonoBehaviour
         //ぶつかったPlayerの柱フラグをオンにする
         if(other.gameObject.CompareTag("Player"))
         {
+            //ヒットした柱を代入
             other.gameObject.GetComponent<PlayerScript>().isPile = true;
             GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = gameObject;
-            
-            
-            //地面フラグオン
-            //other.gameObject.GetComponent<PlayerScript>().isGround = true;
         }
     }
 
@@ -49,8 +54,7 @@ public class PileScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = null;
-            //地面フラグオン
-            //other.gameObject.GetComponent<PlayerScript>().isGround = true;
+
         }
     }
 
