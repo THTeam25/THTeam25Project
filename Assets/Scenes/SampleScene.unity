@@ -3307,6 +3307,14 @@ PrefabInstance:
       propertyPath: jumpPower
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670087, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: pileMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ecd344548ff543242b7d400563ffd01d, type: 2}
+    - target: {fileID: 667051453934670087, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: normalMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: a30156fedc9b44b42a2d1534bdde4530, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
 --- !u!1001 &1071774436175943669

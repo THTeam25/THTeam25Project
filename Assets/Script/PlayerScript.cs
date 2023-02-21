@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpValue = 0.0f;
     //最大ジャンプ入力値
     public float maxJumpValue = 180.0f;
-    
+
     //ヒット下杭
     public GameObject hitPile;
 
@@ -118,7 +118,7 @@ public class PlayerScript : MonoBehaviour
             //柱ジャンプベクトル反転
             pileJumpVector *= -1;
             //通常ジャンプ入力値
-            nomalJumpinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
+            nomalJumpinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude;
         }
         else
         {
@@ -156,16 +156,11 @@ public class PlayerScript : MonoBehaviour
     //ジャンプ
     void Jump()
     {
-
+        //ベロシティを0にする
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
        
         if (isPile)
         {
-            ////柱ジャンプベクトル取得
-            //pileJumpVector.y = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
-            //pileJumpVector.z = playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
-            ////柱ジャンプベクトル反転
-            //pileJumpVector *= -1;
-
             //柱フラグオフ
             isPile = false;
             ////コライダーオフ
@@ -178,7 +173,11 @@ public class PlayerScript : MonoBehaviour
             //柱ジャンプ
             playerRb.AddForce(pileJumpVector * jumpPower * 1.5f);
 
+            //ヒットした柱をnullにする
+            hitPile = null;
+
             
+
         }
         else
         {
@@ -188,8 +187,11 @@ public class PlayerScript : MonoBehaviour
                 nomalJumpinput *= -1;
             }
 
+
             //通常ジャンプ
             playerRb.AddForce(Vector3.up * jumpPower * nomalJumpinput);
+
+            
         }
         
 
