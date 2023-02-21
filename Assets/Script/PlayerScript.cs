@@ -112,14 +112,6 @@ public class PlayerScript : MonoBehaviour
         //地上にいる間だけ加算
         if(isGround || isPile)
         {
-            //ジャンプ入力ち加算
-            jumpValue++;
-
-            if (jumpValue > maxJumpValue)
-            {
-                jumpValue = maxJumpValue;
-            }
-
             //柱ジャンプベクトル取得
             pileJumpVector.y = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
             pileJumpVector.z = playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
