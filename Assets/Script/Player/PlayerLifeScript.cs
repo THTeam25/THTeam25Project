@@ -46,4 +46,7 @@ public class PlayerLifeScript : MonoBehaviour
 
         GetComponent<MeshRenderer>().enabled = false;
     }
+
+    //Ž€–Sƒtƒ‰ƒOŽæ“¾
+    public bool GetDeath() { return death; }
 }
