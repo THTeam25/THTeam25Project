@@ -47,7 +47,7 @@ public class ChaisEnemyScript : MonoBehaviour
     //’ÇÕ
     void Chais()
     {
-        if(isChais && player)
+        if(isChais && !player.GetComponent<PlayerLifeScript>().GetDeath())
         {
             //’ÇÕ
             //ˆÚ“®ƒxƒNƒgƒ‹
