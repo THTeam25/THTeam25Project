@@ -52,6 +52,8 @@ public class ChaisEnemyScript : MonoBehaviour
             //追跡
             //移動ベクトル
             Vector3 moveVec = player.transform.position - transform.position;
+            moveVec.Normalize();
+
 
             //移動
             transform.Translate(moveVec * speed * Time.deltaTime,Space.World);
@@ -61,6 +63,7 @@ public class ChaisEnemyScript : MonoBehaviour
             //元の位置に戻る
             //移動ベクトル
             Vector3 moveVec = defaultLocation - transform.position;
+            moveVec.Normalize();
 
             //移動
             transform.Translate(moveVec * speed * Time.deltaTime, Space.World);
