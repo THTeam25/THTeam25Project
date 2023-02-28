@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class GomGunScript : MonoBehaviour
 {
     //飛ばす力
     public float power = 1.0f;
-    //offset
-    public Vector3 offset = Vector3.zero;
+    
+
+    //PlayerObject
+    GameObject player;
+    //PlayerScript
+    PlayerScript pS;
+    //Playerが当たったかのフラグ
+    private bool playerFlag = false;
+    //発射フラグ
+    private bool fire = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +28,26 @@ public class GomGunScript : MonoBehaviour
     void Update()
     {
         
+        //playerが当たっていたら位置固定
+        if(playerFlag)
+        {
+            //SpawnPointにPlayerを合わせる
+            player.transform.position = transform.GetChild(0).gameObject.transform.position;
+
+            if(fire)
+            {
+                //Player飛ばす
+                player.GetComponent<Rigidbody>().AddForce((Vector3.forward + new Vector3(0, 1.0f, 0)) * power);
+
+                //移動できるようにする
+                pS.SetMove(true);
+
+                //Playerフラグオフ
+                playerFlag = false;
+
+                fire = false;
+            }
+        }
     }
 
     //Playerが当たったら
@@ -27,13 +55,27 @@ public class GomGunScript : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            GameObject player = collision.gameObject;
+            //コンポーネント設定
+            player = collision.gameObject;
+            pS = player.GetComponent<PlayerScript>();
 
-            //SpawnPointにPlayerを合わせる
-            player.transform.position = transform.GetChild(0).gameObject.transform.position;
+            //移動できなくする
+            pS.SetMove(false);
 
-            //Player飛ばす
-            player.GetComponent<Rigidbody>().AddForce(Vector3.forward * power);
+            //Playerフラグオン
+            playerFlag = true;
+
+            
+        }
+    }
+
+    //発射ボタンが押されたら
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        Debug.Log("Fire");
+        if(context.performed)
+        {
+            fire = true;
         }
     }
 }

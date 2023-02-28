@@ -45,6 +45,8 @@ public class PlayerScript : MonoBehaviour
     public bool isPile = false;
     //柱をつかんでいるか
     public bool isSeize = false;
+    //移動フラグ
+    public bool isMove = true;
 
     //リジットボディ
     private Rigidbody playerRb;
@@ -64,7 +66,11 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         //移動
-        Move();
+        if(isMove)
+        {
+            Move();
+        }
+       
 
         //柱か地上にいなければフラグオフ
         if (!(isGround || isSeize))
@@ -107,7 +113,7 @@ public class PlayerScript : MonoBehaviour
        
  
         //地面か柱にいなければジャンプする
-        if (context.performed && (isGround || isSeize))
+        if (context.performed && (isGround || isSeize) && isMove)
         {
             
 
@@ -151,7 +157,7 @@ public class PlayerScript : MonoBehaviour
     //ジャンプチャージボタンが押されたら
     public void OnChargeJump(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && isMove)
         {
             //地上か柱にいる間だけ
             if (isGround || isSeize)
@@ -252,7 +258,7 @@ public class PlayerScript : MonoBehaviour
     public void OnSeize(InputAction.CallbackContext context)
     {
         //ボタンが押されたら
-        if(context.started)
+        if(context.started && isMove)
         {
             //柱にトリガーしていて掴んでいなければ掴む
             if (isPile && !isSeize)
@@ -308,4 +314,10 @@ public class PlayerScript : MonoBehaviour
 
     //どれくらい伸びたか返す
     public float GetExtendValue() { return extendValue; }
+
+    //移動フラグ設定
+    public void SetMove(bool b)
+    {
+        isMove = b;
+    }
 }
