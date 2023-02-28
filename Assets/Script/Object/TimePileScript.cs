@@ -26,7 +26,7 @@ public class TimePileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pS.isSeize && !timer)
+        if(pS.isSeize && !timer && pS.hitPile == this.gameObject)
         {
             timer = true;
 
