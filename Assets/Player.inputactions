@@ -29,7 +29,7 @@
                     "id": "f0c6e76d-6e0a-4e82-809c-338711b3c9f3",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -47,7 +47,7 @@
                     "id": "e6f7fda6-d6e3-45b2-b7b3-854ae800476d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Press(pressPoint=0.7,behavior=1)",
+                    "interactions": "Press(pressPoint=0.8,behavior=1)",
                     "initialStateCheck": true
                 },
                 {
@@ -83,7 +83,7 @@
                     "id": "6133f7f1-a5e7-4243-8c76-32f27c000991",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "Press(pressPoint=0.8)",
                     "initialStateCheck": true
                 },
                 {
@@ -1076,7 +1076,7 @@
                     "id": "e4440498-7771-4826-8804-2541f56610a2",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "Press(pressPoint=0.1)",
                     "initialStateCheck": false
                 }
             ],
