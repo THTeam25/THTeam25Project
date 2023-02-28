@@ -18,6 +18,7 @@ public class GomGunScript : MonoBehaviour
     //発射フラグ
     private bool fire = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,9 @@ public class GomGunScript : MonoBehaviour
                 playerFlag = false;
 
                 fire = false;
+
+                //銃設定
+                pS.SetHitGun(null);
             }
         }
     }
@@ -65,15 +69,17 @@ public class GomGunScript : MonoBehaviour
             //Playerフラグオン
             playerFlag = true;
 
-            
+            //銃設定
+            pS.SetHitGun(this.gameObject);
         }
     }
 
     //発射ボタンが押されたら
-    public void OnFire(InputAction.CallbackContext context)
+    public void Fire()
     {
         Debug.Log("Fire");
-        if(context.performed)
+
+        if(playerFlag)
         {
             fire = true;
         }
