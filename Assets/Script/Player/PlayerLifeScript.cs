@@ -7,7 +7,7 @@ public class PlayerLifeScript : MonoBehaviour
     //Å‘å‘Ì—Í
     public float maxLife = 1;
     //Œ»İ‘Ì—Í
-    private float life;
+    public float life;
     //€–Sƒtƒ‰ƒO
     private bool death = false;
 
