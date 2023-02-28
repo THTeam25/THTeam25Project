@@ -259,11 +259,7 @@ public class PlayerScript : MonoBehaviour
             {
                 isSeize = true;
             }
-            ////’Í‚ñ‚Å‚¢‚ê‚Î•ú‚·
-            //else if (isSeize)
-            //{
-            //    isSeize = false;
-            //}
+
         }
         
     }
