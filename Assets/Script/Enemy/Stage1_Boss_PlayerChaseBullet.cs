@@ -35,8 +35,6 @@ public class Stage1_Boss_PlayerChaseBullet : MonoBehaviour
     void Start()
     {
         time = bulletwait;
-
- 
     }
 
     // Update is called once per frame
@@ -55,7 +53,10 @@ public class Stage1_Boss_PlayerChaseBullet : MonoBehaviour
                 float z = Player.position.z;
 
                 // GameObjectを上記で決まったランダムな場所に生成
-                Instantiate(bullet, new Vector3(0.0f, y, z), bullet.transform.rotation);
+                GameObject instance = Instantiate(bullet, new Vector3(0.0f, y, z), bullet.transform.rotation);
+
+                // 赤色に変更する
+                instance.GetComponent<Renderer>().material.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
 
                 // 経過時間リセット
                 time = bulletwait;
@@ -71,13 +72,19 @@ public class Stage1_Boss_PlayerChaseBullet : MonoBehaviour
                 // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
                 float z = Player.position.z;
 
+
                 // GameObjectを上記で決まったランダムな場所に生成
-                Instantiate(bullet, new Vector3(0.0f, y, z), bullet.transform.rotation);
+                GameObject instance = Instantiate(bullet, new Vector3(0.0f, y, z), bullet.transform.rotation);
+
+                // 赤色に変更する
+                instance.GetComponent<Renderer>().material.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
 
                 // 経過時間リセット
                 time = bulletwait;
             }
+            
         }
-
+        
+       
     }
 }
