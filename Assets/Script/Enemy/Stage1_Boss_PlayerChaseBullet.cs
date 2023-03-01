@@ -8,20 +8,21 @@ public class Stage1_Boss_PlayerChaseBullet : MonoBehaviour
     [SerializeField]
     [Tooltip("プレイヤー")]//カーソルを合わせた際説明表示
     private Transform Player;
+
     [SerializeField]
-    [Tooltip("ボス")]//カーソルを合わせた際説明表示
-    private Transform Boss;
-    [SerializeField]
-    [Tooltip("生成する範囲A")]//カーソルを合わせた際説明表示
+    [Tooltip("生成する範囲Aの左上のコライダー")]//カーソルを合わせた際説明表示
     private Transform RangeA_leftup;
+
     [SerializeField]
-    [Tooltip("生成する範囲B")]
+    [Tooltip("生成する範囲Aの右下のコライダー")]
     private Transform RangeA_rightdown;
 
-    [Tooltip("生成する範囲A")]//カーソルを合わせた際説明表示
-    private Transform RangeB_leftup;
     [SerializeField]
-    [Tooltip("生成する範囲B")]
+    [Tooltip("生成する範囲Bの左上のコライダー")]//カーソルを合わせた際説明表示
+    private Transform RangeB_leftup;
+
+    [SerializeField]
+    [Tooltip("生成する範囲Bの右下のコライダー")]
     private Transform RangeB_rightdown;
 
     // 経過時間
