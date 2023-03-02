@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     public float jumpValue = 0.0f;
     //最大ジャンプ入力値
     public float maxJumpValue = 180.0f;
+    //空中移動倍率
+    public float moveRatio = 10.0f;
 
     //ヒット下杭
     public GameObject hitPile;
@@ -105,8 +107,15 @@ public class PlayerScript : MonoBehaviour
     //移動
     void Move()
     {
-
-        transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime, Space.World);
+        if(isGround)
+        {
+            transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime, Space.World);
+        }
+        else
+        {
+            transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime * moveRatio, Space.World);
+        }
+        
 
 
     }

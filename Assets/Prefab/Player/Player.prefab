@@ -340,8 +340,10 @@ MonoBehaviour:
   speed: 6
   leftX: 0
   jumpPower: 1500
+  jumpRatio: 0
   jumpValue: 0
   maxJumpValue: 30
+  moveRatio: 2
   hitPile: {fileID: 0}
   pileJumpVector: {x: 0, y: 0, z: 0}
   maxExtend: 3

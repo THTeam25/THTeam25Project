@@ -2625,17 +2625,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b35e68843e63743857ad68733a094e, type: 3}
---- !u!114 &2008767940 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 667051453934670087, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-  m_PrefabInstance: {fileID: 667051454232984624}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc1123812ab8054d9a33f78a527dff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2063276829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8830685697510662024, guid: f0b35e68843e63743857ad68733a094e, type: 3}
@@ -2783,18 +2772,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1716242512, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: maxLife
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881753386, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1881753386, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 667051453934670080, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2842,50 +2819,6 @@ PrefabInstance:
     - target: {fileID: 667051453934670085, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.103
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: Gamepad
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
-      value: e4440498-7771-4826-8804-2541f56610a2
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
-      value: Gun/Fire[/XInputControllerWindows/buttonSouth,/Keyboard/space,/XInputControllerWindows/dpad/right]
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2008767940}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFire
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerScript, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
