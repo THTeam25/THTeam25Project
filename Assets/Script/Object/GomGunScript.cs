@@ -18,6 +18,7 @@ public class GomGunScript : MonoBehaviour
     //発射フラグ
     private bool fire = false;
 
+    public Vector3 forward;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +38,14 @@ public class GomGunScript : MonoBehaviour
 
             if(fire)
             {
+                //PlayerのVelocityをゼロに
+                player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                //重力切る
+                player.GetComponent<Rigidbody>().useGravity = false;
                 //Player飛ばす
-                player.GetComponent<Rigidbody>().AddForce((Vector3.forward + new Vector3(0, 1.0f, 0)) * power);
+                player.GetComponent<Rigidbody>().AddForce(transform.forward * power);
+
+                forward = transform.forward;
 
                 //移動できるようにする
                 pS.SetMove(true);
@@ -77,7 +84,6 @@ public class GomGunScript : MonoBehaviour
     //発射ボタンが押されたら
     public void Fire()
     {
-        Debug.Log("Fire");
 
         if(playerFlag)
         {

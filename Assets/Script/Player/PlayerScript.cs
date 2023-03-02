@@ -295,6 +295,10 @@ public class PlayerScript : MonoBehaviour
             if (isPile && !isSeize)
             {
                 isSeize = true;
+
+                //d—Í‚ğƒIƒ“‚É‚·‚é
+                playerRb.useGravity = true;
+
             }
 
         }
