@@ -53,7 +53,8 @@ public class PlayerScript : MonoBehaviour
     public bool isSeize = false;
     //移動フラグ
     public bool isMove = true;
-
+    //空中移動フラグ
+    public bool flyMove = false;
 
     //リジットボディ
     private Rigidbody playerRb;
@@ -109,11 +110,24 @@ public class PlayerScript : MonoBehaviour
     {
         if(isGround)
         {
+            //地上時
             transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime, Space.World);
         }
         else
         {
+            //空中時
             transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime * moveRatio, Space.World);
+
+            if(!flyMove && leftX != 0)
+            {
+                //空中移動フラグオン
+                flyMove = true;
+
+                //左右の物理的速度を一度0にする
+                Vector3 temp = playerRb.velocity;
+                temp.z = 0;
+                playerRb.velocity = temp;
+            }
         }
         
 
@@ -234,6 +248,7 @@ public class PlayerScript : MonoBehaviour
         //初期化
         jumpValue = 0;
         jumpRatio = 0;
+        flyMove = false;
     }
 
     //何かに当たったら
