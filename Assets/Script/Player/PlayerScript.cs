@@ -11,6 +11,8 @@ public class PlayerScript : MonoBehaviour
     public float leftX = 0;
     //ジャンプ力
     public float jumpPower = 1.0f;
+    //ジャンプにかけ合わせる数値 1 = 100%, 0 = 0%
+    public float jumpRatio = 0;
     //ジャンプ入力値
     public float jumpValue = 0.0f;
     //最大ジャンプ入力値
@@ -112,9 +114,6 @@ public class PlayerScript : MonoBehaviour
     //ジャンプボタンが話されたられたら
     public void OnJump(InputAction.CallbackContext context)
     {
-
-
-
         //地面か柱にいなければジャンプする
         if (context.performed && (isGround || isSeize) && isMove)
         {
@@ -146,8 +145,12 @@ public class PlayerScript : MonoBehaviour
                 Extend();
             }
 
-            //通常ジャンプ入力値
-            nomalJumpinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude;
+            //ジャンプ割合入力値代入
+            if(jumpRatio <= playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude)
+            {
+                jumpRatio = playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude;
+            }
+            
         }
         else
         {
@@ -194,7 +197,7 @@ public class PlayerScript : MonoBehaviour
             isSeize = false;
 
             //柱ジャンプ
-            playerRb.AddForce(pileJumpVector * (jumpPower * pileJumpVector.magnitude) * 1.5f);
+            playerRb.AddForce(pileJumpVector * (jumpPower * jumpRatio) * 1.5f);
 
             //伸ばしを元に戻す
             FinishExtend();
@@ -203,14 +206,14 @@ public class PlayerScript : MonoBehaviour
         else
         {
 
-            if (nomalJumpinput < 0)
+            if (jumpRatio < 0)
             {
-                nomalJumpinput *= -1;
+                jumpRatio *= -1;
             }
 
 
             //通常ジャンプ
-            playerRb.AddForce(Vector3.up * jumpPower * nomalJumpinput);
+            playerRb.AddForce(Vector3.up * jumpPower * jumpRatio);
 
             //地上フラグオフ
             isGround = false;
@@ -221,6 +224,7 @@ public class PlayerScript : MonoBehaviour
         jumpChargeFlag = false;
         //初期化
         jumpValue = 0;
+        jumpRatio = 0;
     }
 
     //何かに当たったら
