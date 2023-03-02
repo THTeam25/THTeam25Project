@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1631913047985898261}
   - component: {fileID: 1631913047985898260}
   - component: {fileID: 1631913047985898259}
-  - component: {fileID: 1631913047985898264}
+  - component: {fileID: 5487643282431741050}
   m_Layer: 0
   m_Name: dontMoveEnemy
   m_TagString: Untagged
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1631913047985898264
+--- !u!114 &5487643282431741050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +124,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631913047985898258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326f39f53a0923e4cba8c9e611a4c1a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 89bd95f0641b81a45b378c658fcd4012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

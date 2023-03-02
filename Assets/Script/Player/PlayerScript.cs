@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
 
     //ヒット下杭
     public GameObject hitPile;
+    //ヒット銃オブジェクト
+    private GameObject hitGun = null;
 
     //杭ジャンプ方向
     public Vector3 pileJumpVector;
@@ -30,7 +32,7 @@ public class PlayerScript : MonoBehaviour
     public float maxExtend = 3.0f;
     //どれくらい伸びたか
     private float extendValue = 0.0f;
-    
+
     //コントローラーの入力情報
     public PlayerInput playerInput;
 
@@ -45,6 +47,9 @@ public class PlayerScript : MonoBehaviour
     public bool isPile = false;
     //柱をつかんでいるか
     public bool isSeize = false;
+    //移動フラグ
+    public bool isMove = true;
+
 
     //リジットボディ
     private Rigidbody playerRb;
@@ -64,7 +69,11 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         //移動
-        Move();
+        if (isMove)
+        {
+            Move();
+        }
+
 
         //柱か地上にいなければフラグオフ
         if (!(isGround || isSeize))
@@ -77,39 +86,39 @@ public class PlayerScript : MonoBehaviour
             //ジャンプため
             ChargeJump();
         }
-        else 
+        else
         {
             jumpValue = 0;
         }
     }
 
-    public  void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         //左スティック入力
         leftX = context.ReadValue<Vector2>().x;
 
-       
+
     }
 
     //移動
     void Move()
     {
-        
-        transform.Translate(new Vector3(0,0,1) * speed * leftX * Time.deltaTime,Space.World);
 
-       
+        transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime, Space.World);
+
+
     }
 
     //ジャンプボタンが話されたられたら
     public void OnJump(InputAction.CallbackContext context)
     {
 
-       
- 
+
+
         //地面か柱にいなければジャンプする
-        if (context.performed && (isGround || isSeize))
+        if (context.performed && (isGround || isSeize) && isMove)
         {
-            
+
 
             //ジャンプ
             Jump();
@@ -123,7 +132,7 @@ public class PlayerScript : MonoBehaviour
     public void ChargeJump()
     {
         //地上にいる間だけ加算
-        if(isGround || isSeize)
+        if (isGround || isSeize)
         {
             //柱ジャンプベクトル取得
             pileJumpVector.y = playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
@@ -145,13 +154,13 @@ public class PlayerScript : MonoBehaviour
             jumpValue = 0.0f;
         }
 
-        
+
     }
-    
+
     //ジャンプチャージボタンが押されたら
     public void OnChargeJump(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && isMove)
         {
             //地上か柱にいる間だけ
             if (isGround || isSeize)
@@ -168,7 +177,7 @@ public class PlayerScript : MonoBehaviour
 
             }
 
-            
+
         }
 
     }
@@ -176,7 +185,7 @@ public class PlayerScript : MonoBehaviour
     //ジャンプ
     void Jump()
     {
-       
+
         if (isSeize)
         {
             //柱フラグオフ
@@ -193,8 +202,8 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            
-            if(nomalJumpinput <0)
+
+            if (nomalJumpinput < 0)
             {
                 nomalJumpinput *= -1;
             }
@@ -206,7 +215,7 @@ public class PlayerScript : MonoBehaviour
             //地上フラグオフ
             isGround = false;
         }
-        
+
 
         //フラグオフ
         jumpChargeFlag = false;
@@ -218,7 +227,7 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //地上にいるか判定
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGround = true;
 
@@ -226,7 +235,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //パワーアップアイテムに当たったら
-        if(collision.gameObject.CompareTag("PowerUp"))
+        if (collision.gameObject.CompareTag("PowerUp"))
         {
             powerUpType = collision.gameObject.GetComponent<PowerUpScript>().type;
             GetComponent<PlayerPowerUseScript>().SetPowerType(powerUpType);
@@ -252,22 +261,18 @@ public class PlayerScript : MonoBehaviour
     public void OnSeize(InputAction.CallbackContext context)
     {
         //ボタンが押されたら
-        if(context.started)
+        if (context.started && isMove)
         {
             //柱にトリガーしていて掴んでいなければ掴む
             if (isPile && !isSeize)
             {
                 isSeize = true;
             }
-            ////掴んでいれば放す
-            //else if (isSeize)
-            //{
-            //    isSeize = false;
-            //}
+
         }
-        
+
     }
-    
+
     //Player伸ばす
     private void Extend()
     {
@@ -287,7 +292,7 @@ public class PlayerScript : MonoBehaviour
 
         tempRot.z = Mathf.Atan2(xinput, yinput) * Mathf.Rad2Deg;
 
-        transform.RotateAround(hitPile.transform.position,new Vector3(0,0,1), tempRot.z);
+        transform.RotateAround(hitPile.transform.position, new Vector3(0, 0, 1), tempRot.z);
 
         transform.rotation = Quaternion.Euler(tempRot);
     }
@@ -312,4 +317,26 @@ public class PlayerScript : MonoBehaviour
 
     //どれくらい伸びたか返す
     public float GetExtendValue() { return extendValue; }
+
+    //移動フラグ設定
+    public void SetMove(bool b)
+    {
+        isMove = b;
+    }
+
+    //発射
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed && hitGun)
+        {
+            hitGun.GetComponent<GomGunScript>().Fire();
+        }
+    }
+
+    //ヒット下銃設定
+    public void SetHitGun(GameObject go)
+    {
+        hitGun = go;
+    }
+
 }
