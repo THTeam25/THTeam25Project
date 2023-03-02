@@ -11,10 +11,14 @@ public class PlayerScript : MonoBehaviour
     public float leftX = 0;
     //ジャンプ力
     public float jumpPower = 1.0f;
+    //ジャンプにかけ合わせる数値 1 = 100%, 0 = 0%
+    public float jumpRatio = 0;
     //ジャンプ入力値
     public float jumpValue = 0.0f;
     //最大ジャンプ入力値
     public float maxJumpValue = 180.0f;
+    //空中移動倍率
+    public float moveRatio = 10.0f;
 
     //ヒット下杭
     public GameObject hitPile;
@@ -49,7 +53,8 @@ public class PlayerScript : MonoBehaviour
     public bool isSeize = false;
     //移動フラグ
     public bool isMove = true;
-
+    //空中移動フラグ
+    public bool flyMove = false;
 
     //リジットボディ
     private Rigidbody playerRb;
@@ -103,8 +108,28 @@ public class PlayerScript : MonoBehaviour
     //移動
     void Move()
     {
+        if(isGround)
+        {
+            //地上時
+            transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime, Space.World);
+        }
+        else
+        {
+            //空中時
+            transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime * moveRatio, Space.World);
 
-        transform.Translate(new Vector3(0, 0, 1) * speed * leftX * Time.deltaTime, Space.World);
+            if(!flyMove && leftX != 0)
+            {
+                //空中移動フラグオン
+                flyMove = true;
+
+                //左右の物理的速度を一度0にする
+                Vector3 temp = playerRb.velocity;
+                temp.z = 0;
+                playerRb.velocity = temp;
+            }
+        }
+        
 
 
     }
@@ -112,9 +137,6 @@ public class PlayerScript : MonoBehaviour
     //ジャンプボタンが話されたられたら
     public void OnJump(InputAction.CallbackContext context)
     {
-
-
-
         //地面か柱にいなければジャンプする
         if (context.performed && (isGround || isSeize) && isMove)
         {
@@ -146,8 +168,12 @@ public class PlayerScript : MonoBehaviour
                 Extend();
             }
 
-            //通常ジャンプ入力値
-            nomalJumpinput = playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude;
+            //ジャンプ割合入力値代入
+            if(jumpRatio <= playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude)
+            {
+                jumpRatio = playerInput.actions["JumpCharge"].ReadValue<Vector2>().magnitude;
+            }
+            
         }
         else
         {
@@ -194,7 +220,7 @@ public class PlayerScript : MonoBehaviour
             isSeize = false;
 
             //柱ジャンプ
-            playerRb.AddForce(pileJumpVector * (jumpPower * pileJumpVector.magnitude) * 1.5f);
+            playerRb.AddForce(pileJumpVector * (jumpPower * jumpRatio) * 1.5f);
 
             //伸ばしを元に戻す
             FinishExtend();
@@ -203,14 +229,14 @@ public class PlayerScript : MonoBehaviour
         else
         {
 
-            if (nomalJumpinput < 0)
+            if (jumpRatio < 0)
             {
-                nomalJumpinput *= -1;
+                jumpRatio *= -1;
             }
 
 
             //通常ジャンプ
-            playerRb.AddForce(Vector3.up * jumpPower * nomalJumpinput);
+            playerRb.AddForce(Vector3.up * jumpPower * jumpRatio);
 
             //地上フラグオフ
             isGround = false;
@@ -221,6 +247,8 @@ public class PlayerScript : MonoBehaviour
         jumpChargeFlag = false;
         //初期化
         jumpValue = 0;
+        jumpRatio = 0;
+        flyMove = false;
     }
 
     //何かに当たったら
@@ -267,6 +295,10 @@ public class PlayerScript : MonoBehaviour
             if (isPile && !isSeize)
             {
                 isSeize = true;
+
+                //重力をオンにする
+                playerRb.useGravity = true;
+
             }
 
         }
