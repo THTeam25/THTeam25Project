@@ -5,6 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    //柱タイプ
+    public enum pileType
+    {
+        Auto,
+        Keep,
+        Two,
+    }
+
+    public pileType pT;
+
     //移動速度
     public float speed = 1.0f;
     //左スティック入力
@@ -138,7 +148,7 @@ public class PlayerScript : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         //地面か柱にいなければジャンプする
-        if (context.performed && (isGround || isSeize) && isMove)
+        if (context.phase == InputActionPhase.Canceled && (isGround || isSeize) && isMove)
         {
 
 
@@ -288,20 +298,62 @@ public class PlayerScript : MonoBehaviour
     //掴む
     public void OnSeize(InputAction.CallbackContext context)
     {
-        //ボタンが押されたら
-        if (context.started && isMove)
+
+        switch (pT)
         {
-            //柱にトリガーしていて掴んでいなければ掴む
-            if (isPile && !isSeize)
-            {
-                isSeize = true;
+            case pileType.Auto:
 
-                //重力をオンにする
-                playerRb.useGravity = true;
+                break;
+                //押している間だけ
+            case pileType.Keep:
+                //ボタンが押されたら
+                if (context.phase == InputActionPhase.Started && isMove)
+                {
+                    Debug.Log("Press");
+                    //柱にトリガーしていて掴んでいなければ掴む
+                    if (isPile && !isSeize)
+                    {
+                        isSeize = true;
 
-            }
+                        //重力をオンにする
+                        playerRb.useGravity = true;
 
+                    }
+                }
+                //ボタン離されたら
+                if(context.phase == InputActionPhase.Canceled && isSeize)
+                {
+                    Debug.Log("Releass");
+                    isSeize = false;
+                }
+
+                break;
+                //二回押すと離す
+            case pileType.Two:
+                //ボタンが押されたら
+                if (context.started && isMove)
+                {
+                    //柱にトリガーしていて掴んでいなければ掴む
+                    if (isPile && !isSeize)
+                    {
+                        isSeize = true;
+
+                        //重力をオンにする
+                        playerRb.useGravity = true;
+
+                    }
+                    else if(isPile && isSeize)
+                    {
+                        isSeize = false;
+                    }
+
+                }
+                break;
         }
+
+
+
+        
 
     }
 

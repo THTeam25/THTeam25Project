@@ -45,6 +45,12 @@ public class PileScript : MonoBehaviour
             //ƒqƒbƒg‚µ‚½’Œ‚ð‘ã“ü
             other.gameObject.GetComponent<PlayerScript>().isPile = true;
             GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = gameObject;
+
+            //Auto‚¾‚Á‚½‚çŽ©“®‚Å•ß‚Ü‚é
+            if(other.gameObject.GetComponent<PlayerScript>().pT == PlayerScript.pileType.Auto)
+            {
+                other.gameObject.GetComponent<PlayerScript>().isSeize = true;
+            }
         }
     }
 
