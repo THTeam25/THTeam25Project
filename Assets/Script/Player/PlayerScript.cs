@@ -148,7 +148,7 @@ public class PlayerScript : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         //地面か柱にいなければジャンプする
-        if (context.phase == InputActionPhase.Canceled && (isGround || isSeize) && isMove)
+        if (context.phase == InputActionPhase.Performed && (isGround || isSeize) && isMove)
         {
 
 
@@ -196,7 +196,7 @@ public class PlayerScript : MonoBehaviour
     //ジャンプチャージボタンが押されたら
     public void OnChargeJump(InputAction.CallbackContext context)
     {
-        if (context.started && isMove)
+        if (context.phase == InputActionPhase.Performed && isMove)
         {
             //地上か柱にいる間だけ
             if (isGround || isSeize)
@@ -230,11 +230,12 @@ public class PlayerScript : MonoBehaviour
             isSeize = false;
 
             //柱ジャンプ
-            playerRb.AddForce(pileJumpVector * (jumpPower * jumpRatio) * 1.5f);
+            playerRb.AddForce(pileJumpVector * (jumpPower * jumpRatio * 1.5f));
 
             //伸ばしを元に戻す
             FinishExtend();
 
+           
         }
         else
         {
@@ -248,8 +249,7 @@ public class PlayerScript : MonoBehaviour
             //通常ジャンプ
             playerRb.AddForce(Vector3.up * jumpPower * jumpRatio);
 
-            //地上フラグオフ
-            isGround = false;
+            
         }
 
 
@@ -264,13 +264,7 @@ public class PlayerScript : MonoBehaviour
     //何かに当たったら
     private void OnCollisionEnter(Collision collision)
     {
-        //地上にいるか判定
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGround = true;
 
-            playerRb.velocity = Vector3.zero;
-        }
 
         //パワーアップアイテムに当たったら
         if (collision.gameObject.CompareTag("PowerUp"))
@@ -283,8 +277,31 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        
         //地上を離れたか判定
         if (collision.gameObject.CompareTag("Ground"))
+        {
+           
+        }
+    }
+
+    //接地判定
+   private void OnTriggerStay(Collider collider)
+    {
+        //地上にいるか判定
+        if (collider.gameObject.CompareTag("Ground"))
+        {
+            isGround = true;
+
+            //playerRb.velocity = Vector3.zero;
+        }
+    }
+
+    //接地判定
+    void OnTriggerExit(Collider collider)
+    {
+        //地上を離れたか判定
+        if (collider.gameObject.CompareTag("Ground"))
         {
             isGround = false;
         }
