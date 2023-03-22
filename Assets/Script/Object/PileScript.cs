@@ -27,6 +27,7 @@ public class PileScript : MonoBehaviour
             float x = pS.playerInput.actions["JumpCharge"].ReadValue<Vector2>().x;
             float y = pS.playerInput.actions["JumpCharge"].ReadValue<Vector2>().y;
 
+            //PLayer‰ñ“]‚³‚¹‚é
             Vector3 rotateVector = new Vector3(0,y,x);
             GameObject.Find("Player").transform.position = GameObject.Find("Player").GetComponent<PlayerScript>().hitPile.transform.position +
                 rotateVector * playerPositionOffset * pS.GetExtendValue();

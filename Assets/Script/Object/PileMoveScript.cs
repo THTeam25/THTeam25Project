@@ -16,7 +16,7 @@ public class PileMoveScript : MonoBehaviour
     private Vector3 p_Pos;
 
     //ˆÚ“®•ûŒüØ‚è‘Ö‚¦ƒtƒ‰ƒO
-    private bool bMove = true;
+    public bool bMove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class PileMoveScript : MonoBehaviour
 
             
 
-            if((transform.position - p_Pos).sqrMagnitude <= 0.1*0.1)
+            if((transform.position - p_Pos).sqrMagnitude <= 2 * speed * Time.deltaTime)
             {
                 bMove = false;
             }
@@ -44,7 +44,7 @@ public class PileMoveScript : MonoBehaviour
         {
             transform.position -= (MoveValue * speed * Time.deltaTime);
 
-            if ((transform.position - m_Pos).sqrMagnitude <= 0.1 * 0.1)
+            if ((m_Pos - transform.position).sqrMagnitude <= 2 * speed * Time.deltaTime)
             {
                 bMove = true;
             }
