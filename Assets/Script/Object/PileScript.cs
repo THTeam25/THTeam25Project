@@ -62,6 +62,7 @@ public class PileScript : MonoBehaviour
         {
             GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = null;
 
+            other.gameObject.GetComponent<PlayerScript>().isPile = false;
         }
     }
 
