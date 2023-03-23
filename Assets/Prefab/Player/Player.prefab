@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 786033982}
   - component: {fileID: 1716242512}
   - component: {fileID: 715739928498131478}
+  - component: {fileID: 4093756867205478954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -320,6 +321,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f9ad0446-19f2-43dd-b7b9-484d95a821ae
     m_ActionName: Player/Seize[/Keyboard/u,/XInputControllerWindows/buttonEast,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ad9aade-a886-4a86-ade3-a2e5090adbf5
+    m_ActionName: UI/TitleStart[/Keyboard/anyKey,/Mouse/press,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -337,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc1123812ab8054d9a33f78a527dff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pT: 2
   speed: 6
   leftX: 0
   jumpPower: 1500
@@ -401,6 +407,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0799997, y: 2.08, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &4093756867205478954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667051453934670080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0799997, y: 2.08, z: 0.07999991}
+  m_Center: {x: 0, y: -1.01, z: 0}
 --- !u!1 &5366059039314679372
 GameObject:
   m_ObjectHideFlags: 0
