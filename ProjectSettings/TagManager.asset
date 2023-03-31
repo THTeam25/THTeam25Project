@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - PowerUp
+  - CameraChangePoint_Stage1_Boss
   layers:
   - Default
   - TransparentFX
