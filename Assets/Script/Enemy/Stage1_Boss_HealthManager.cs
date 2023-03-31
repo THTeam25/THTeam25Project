@@ -22,7 +22,7 @@ public class Stage1_Boss_HealthManager : MonoBehaviour
         currentHealth--;
 
         // HPが0になったらゲームクリアシーンに移行する
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             HP1.SetActive(false);
             num--;
