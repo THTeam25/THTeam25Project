@@ -10,8 +10,7 @@ public class Stage1_Boss_HealthManager : MonoBehaviour
     public GameObject HP1;
     public GameObject HP2;
     public GameObject HP3;
-    [SerializeField]
-    private int num = 5;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -25,13 +24,11 @@ public class Stage1_Boss_HealthManager : MonoBehaviour
         if (currentHealth <= 0)
         {
             HP1.SetActive(false);
-            num--;
-            if (num <= 0)
-            {
 
-                SceneManager.LoadScene("GameClear");
 
-            }
+            SceneManager.LoadScene("GameClear");
+
+
 
         }
 
