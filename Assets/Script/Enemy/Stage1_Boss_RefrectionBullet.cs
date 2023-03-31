@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletScript : MonoBehaviour
+public class Stage1_Boss_RefrectionBullet : MonoBehaviour
 {
     float startTime; //発射時刻
     public float Timer = 0.5f; //経過時刻
@@ -17,7 +17,7 @@ public class EnemyBulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startTime + Timer < Time.time) //発射からTimer分の時間経ったら
+        if (startTime + Timer < Time.time) //発射から0.5秒経ったら
         {
             Destroy(gameObject); //自身を削除
         }
@@ -25,7 +25,7 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             //Playerの体力のスクリプト
             PlayerLifeScript ps = collision.gameObject.GetComponent<PlayerLifeScript>();

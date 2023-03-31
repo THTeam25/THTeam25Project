@@ -34,7 +34,7 @@ public class CheckShot : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            ///弾を撃つスクリプト取得
+            //弾を撃つスクリプト取得
             EnemyShotScript ess = transform.root.gameObject.GetComponent<EnemyShotScript>();
 
 
