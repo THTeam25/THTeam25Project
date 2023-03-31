@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - PowerUp
   - CameraChangePoint_Stage1_Boss
+  - MiniMapCamera
+  - Boss
   layers:
   - Default
   - TransparentFX
