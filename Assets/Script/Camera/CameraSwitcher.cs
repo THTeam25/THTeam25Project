@@ -8,6 +8,7 @@ public class CameraSwitcher : MonoBehaviour
     public Transform cameraChangePoint;
     public Camera mainCamera;
     public GameObject minimapcamera;
+    public GameObject cube;
     public Camera secondCamera;
 
     void Start()
@@ -21,14 +22,15 @@ public class CameraSwitcher : MonoBehaviour
         void Update()
     {
         // プレイヤーがカメラ切り替えポイントに到達したら
-        if (player.position.z <= cameraChangePoint.position.z + 0.5f && player.position.z >= cameraChangePoint.position.z - 0.5f
-            && player.position.y <= cameraChangePoint.position.y + 0.5f && player.position.y >= cameraChangePoint.position.y - 0.5f)
+        if (player.position.z <= cameraChangePoint.position.z + 1.5f && player.position.z >= cameraChangePoint.position.z - 1.5f
+            && player.position.y <= cameraChangePoint.position.y + 1.5f && player.position.y >= cameraChangePoint.position.y - 1.5f
+            && player.position.x <= cameraChangePoint.position.x + 1.5f && player.position.x >= cameraChangePoint.position.x - 1.5f)
         {
             mainCamera.enabled = !mainCamera.enabled;
             // ゲームオブジェクトを見えなくする
             minimapcamera.SetActive(false);
             secondCamera.enabled = !secondCamera.enabled;
-            player.position = new Vector3(0, 1.5f, -7);
+            player.position = cube.transform.position;
         }
     }
 }

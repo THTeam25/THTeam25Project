@@ -67,10 +67,6 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
             }
         }
 
-        if (this.transform.position.y <= 2.0f) //y座標が1以下になったら
-        {
-            Destroy(gameObject); //自身を削除
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -83,5 +79,10 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
             stage1_Boss_HealthManager.TakeDamage(1);
             Destroy(gameObject); //自身を削除
         }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject); //自身を削除
+        }
+
     }
 }

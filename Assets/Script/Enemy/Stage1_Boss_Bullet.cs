@@ -14,10 +14,7 @@ public class Stage1_Boss_Bullet : MonoBehaviour
     void Update()
     {
 
-        if (this.transform.position.y <= 1.5f) //y座標が1以下になったら
-        {
-            Destroy(gameObject); //自身を削除
-        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -28,6 +25,10 @@ public class Stage1_Boss_Bullet : MonoBehaviour
             PlayerLifeScript ps = collision.gameObject.GetComponent<PlayerLifeScript>();
 
             ps.TakeDamage(1);
+            Destroy(gameObject); //自身を削除
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
             Destroy(gameObject); //自身を削除
         }
     }
