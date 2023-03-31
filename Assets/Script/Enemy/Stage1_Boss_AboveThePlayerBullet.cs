@@ -11,6 +11,22 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
     private int num = 0;
     private Vector3 targetPosition; // 移動先の位置
 
+    [SerializeField]
+    [Tooltip("生成する範囲Aの左上のコライダー")]//カーソルを合わせた際説明表示
+    private Transform RangeA_leftup;
+
+    [SerializeField]
+    [Tooltip("生成する範囲Aの右下のコライダー")]
+    private Transform RangeA_rightdown;
+
+    [SerializeField]
+    [Tooltip("生成する範囲Bの左上のコライダー")]//カーソルを合わせた際説明表示
+    private Transform RangeB_leftup;
+
+    [SerializeField]
+    [Tooltip("生成する範囲Bの右下のコライダー")]
+    private Transform RangeB_rightdown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +36,8 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
         initialPosition = transform.position;  // オブジェクトの初期位置を保存
         num = 0;
 
-        
+        // コライダーのトリガーモードをオンにする
+        GetComponent<Collider>().isTrigger = true;
     }
 
     // Update is called once per frame
@@ -30,13 +47,20 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
         targetPosition = new Vector3(initialPosition.x, initialPosition.y, playerTransform.position.z);
         if (num == 0)
         {
-            // オブジェクトを目標位置に向かって移動する
-            transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / chasetime);
+            //範囲内にプレイヤーが入っていたら
+            //if ((RangeA_leftup.position.z <= playerTransform.position.z && playerTransform.position.z <= RangeA_rightdown.position.z)
+            //    || (RangeB_leftup.position.z <= playerTransform.position.z && playerTransform.position.z <= RangeB_rightdown.position.z))
+            //{
+                // オブジェクトを目標位置に向かって移動する
+                transform.position = Vector3.Lerp(initialPosition, targetPosition, elapsedTime / chasetime);
+            //}
 
             // 経過時間を計測し、chasetime分経過したらオブジェクトを落下させる
             elapsedTime += Time.deltaTime;
             if (elapsedTime >= chasetime)
             {
+                // コライダーのトリガーモードをオンにする
+                GetComponent<Collider>().isTrigger = false;
                 // オブジェクトを落下させる
                 GetComponent<Rigidbody>().useGravity = true;
                 num = 1;
@@ -51,12 +75,12 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Boss"))
         {
-            //Playerの体力のスクリプト
-            PlayerLifeScript ps = collision.gameObject.GetComponent<PlayerLifeScript>();
+            //Bossの体力のスクリプト
+            Stage1_Boss_HealthManager stage1_Boss_HealthManager = collision.gameObject.GetComponent<Stage1_Boss_HealthManager>();
 
-            ps.TakeDamage(1);
+            stage1_Boss_HealthManager.TakeDamage(1);
             Destroy(gameObject); //自身を削除
         }
     }
