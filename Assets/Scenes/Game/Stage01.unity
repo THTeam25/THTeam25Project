@@ -2011,21 +2011,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 905967127}
     m_Modifications:
-    - target: {fileID: 2928549007628997668, guid: 2b556ed61080d4c458f237400384912a, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2928549007628997668, guid: 2b556ed61080d4c458f237400384912a, type: 3}
-      propertyPath: MoveValue.z
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5565820598085666769, guid: 2b556ed61080d4c458f237400384912a, type: 3}
       propertyPath: m_Name
       value: MovePile (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5565820598085666770, guid: 2b556ed61080d4c458f237400384912a, type: 3}
-      propertyPath: m_Radius
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5565820598085666797, guid: 2b556ed61080d4c458f237400384912a, type: 3}
       propertyPath: m_RootOrder
@@ -3184,7 +3172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1181178027542791102, guid: 5c779e38df1b88e49a13cd71e89f34d3, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2575755615347656516, guid: 5c779e38df1b88e49a13cd71e89f34d3, type: 3}
       propertyPath: m_RootOrder
@@ -3192,7 +3180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3708607261125143507, guid: 5c779e38df1b88e49a13cd71e89f34d3, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3818251878582933162, guid: 5c779e38df1b88e49a13cd71e89f34d3, type: 3}
       propertyPath: m_RootOrder
@@ -4809,7 +4797,6 @@ MonoBehaviour:
   HP1: {fileID: 527443029}
   HP2: {fileID: 1961428872}
   HP3: {fileID: 1886559359}
-  num: 5
 --- !u!136 &2089769704
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4965,10 +4952,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1716242512, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: maxLife
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 667051453934670080, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5017,9 +5000,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.103
       objectReference: {fileID: 0}
-    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: 
+    - target: {fileID: 5366059039314679372, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}

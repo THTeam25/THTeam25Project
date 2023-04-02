@@ -70,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a30156fedc9b44b42a2d1534bdde4530, type: 2}
+  - {fileID: 2100000, guid: 77e7fb3c71fe32747b5f06f3de43f046, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
     m_ActionId: 8ad9aade-a886-4a86-ade3-a2e5090adbf5
     m_ActionName: UI/TitleStart[/Keyboard/anyKey,/Mouse/press,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Gamepad
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e102677c4e5e24d93dffe2ebf3025c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 3
+  maxLife: 10
   life: 0
 --- !u!65 &715739928498131478
 BoxCollider:
@@ -438,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8304784744970021538
 Transform:
   m_ObjectHideFlags: 0
