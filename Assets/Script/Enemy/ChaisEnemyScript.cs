@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChaisEnemyScript : MonoBehaviour
 {
     //追跡フラグ
-    private bool isChais = false;
+    public bool isChais = false;
 
     //移動スピード
     public float speed = 1.0f;
@@ -15,7 +15,7 @@ public class ChaisEnemyScript : MonoBehaviour
     private Vector3 defaultLocation;
 
     //PlayerObject
-    private GameObject player;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()

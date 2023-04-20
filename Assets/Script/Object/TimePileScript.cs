@@ -10,6 +10,12 @@ public class TimePileScript : MonoBehaviour
     //消えてから表示されるまでの時間時間
     public float displayTime = 3.0f;
 
+    //消えるフラグ（Falseならプレイヤーがつかんだタイミング,Trueならスタート時）
+    public bool bStartr;
+
+    //最初柱が消えているかフラグ
+    public bool bFirstHidden;
+
     //PlayerScript
     private PlayerScript pS;
 
@@ -20,29 +26,61 @@ public class TimePileScript : MonoBehaviour
     void Start()
     {
         //PlayerScript
-        pS = GameObject.Find("Player").GetComponent<PlayerScript>();    
+        pS = GameObject.Find("Player").GetComponent<PlayerScript>();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(pS.isSeize && !timer && pS.hitPile == this.gameObject)
+        if(pS.isSeize && !timer && pS.hitPile == this.gameObject && !bStartr)
         {
             timer = true;
 
             //disappearTime秒後disappear呼ぶ
             Invoke("Disapper", disappearTime);
         }
+        else if(bStartr && !timer)
+        {
+            timer = true;
+
+            //アクティブで表示するか非表示にするか帰る
+            if(!bFirstHidden)
+            {
+                //disappearTime秒後disappear呼ぶ
+                Invoke("Disapper", disappearTime);
+            }
+            else
+            {
+
+
+                //gameObject非アクティブ
+                gameObject.SetActive(false);
+
+                Invoke("Display", displayTime);
+
+            }
+
+
+            
+        }
     }
 
     //表示から非表示
     void Disapper()
     {
-        //playerの柱フラグをオフ
-        pS.isSeize = false;
+        
 
-        //タイマーフラグをオフ
-        timer = false;
+        if(pS.hitPile == gameObject)
+        {
+            //playerの柱フラグをオフ
+            pS.isSeize = false;
+
+            //プレイヤーの縮を戻す
+            pS.FinishExtend();
+        }
+        
 
         //gameObject非アクティブ
         gameObject.SetActive(false);
@@ -55,5 +93,17 @@ public class TimePileScript : MonoBehaviour
     {
         //gameObject非アクティブ
         gameObject.SetActive(true);
+
+        if(!bFirstHidden)
+        {
+            //タイマーフラグをオフ
+            timer = false;
+        }
+        else
+        {
+            //disappearTime秒後disappear呼ぶ
+            Invoke("Disapper", disappearTime);
+        }
+        
     }
 }

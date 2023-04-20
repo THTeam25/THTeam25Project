@@ -22,14 +22,17 @@ public class ChackChais : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             //追跡エネミースクリプト取得
-            ChaisEnemyScript cs = transform.root.gameObject.GetComponent<ChaisEnemyScript>();
+            ChaisEnemyScript cs = transform.parent.gameObject.GetComponent<ChaisEnemyScript>();
 
             //PlayerObject設定
             cs.SetPlayer(other.gameObject);
 
-            //追跡開始
+            ////追跡開始
             cs.SetChais(true);
+
+          
         }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -37,7 +40,9 @@ public class ChackChais : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //追跡エネミースクリプト取得
-            ChaisEnemyScript cs = transform.root.gameObject.GetComponent<ChaisEnemyScript>();
+            ChaisEnemyScript cs = transform.parent.gameObject.GetComponent<ChaisEnemyScript>();
+
+    
 
             //PlayerObject設定
             cs.SetPlayer(null);
@@ -45,5 +50,6 @@ public class ChackChais : MonoBehaviour
             //追跡終了
             cs.SetChais(false);
         }
+
     }
 }
