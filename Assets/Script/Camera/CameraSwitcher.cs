@@ -10,6 +10,7 @@ public class CameraSwitcher : MonoBehaviour
     public GameObject minimapcamera;
     public GameObject cube;
     public Camera secondCamera;
+    public bool bossmoveflag;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class CameraSwitcher : MonoBehaviour
         mainCamera.enabled = true;
         minimapcamera.SetActive(true);
         secondCamera.enabled = false;
+        bossmoveflag = false;
     }
 
         void Update()
@@ -31,6 +33,7 @@ public class CameraSwitcher : MonoBehaviour
             minimapcamera.SetActive(false);
             secondCamera.enabled = !secondCamera.enabled;
             player.position = cube.transform.position;
+            bossmoveflag = true;
         }
     }
 }

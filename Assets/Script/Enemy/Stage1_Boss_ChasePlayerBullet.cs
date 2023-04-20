@@ -28,7 +28,7 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
     {
         //挙動を変えるスクリプト取得
         GameObject manager_RandomBullet = GameObject.Find("Manager_RandomBullet");
-        Stage1_Boss_RamdomBullet S1B_BR = manager_RandomBullet.GetComponent<Stage1_Boss_RamdomBullet>();
+        Boss_RamdomMove S1B_BR = manager_RandomBullet.GetComponent<Boss_RamdomMove>();
 
         if (S1B_BR.behavior3Active == true)
         {
