@@ -77,6 +77,9 @@ public class TimePileScript : MonoBehaviour
             //playerの柱フラグをオフ
             pS.isSeize = false;
 
+            //PlayerのhitPileをNull
+            pS.hitPile = null;
+
             //プレイヤーの縮を戻す
             pS.FinishExtend();
         }
