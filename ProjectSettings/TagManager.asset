@@ -9,6 +9,7 @@ TagManager:
   - CameraChangePoint_Stage1_Boss
   - MiniMapCamera
   - Boss
+  - Screen
   layers:
   - Default
   - TransparentFX

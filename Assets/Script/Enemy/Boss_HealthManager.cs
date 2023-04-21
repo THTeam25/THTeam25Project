@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Stage1_Boss_HealthManager : MonoBehaviour
+public class Boss_HealthManager : MonoBehaviour
 {
     public int maxHealth = 3;   // ç≈ëÂHP
     public int currentHealth;   // åªç›ÇÃHP

@@ -9,7 +9,7 @@ public class Stage2_Boss_RotateAttack : MonoBehaviour
     public float stoppingDistance = 2f;
 
     private Transform player;
-    private bool isMoving = true;
+    private bool isMoving;
     private Quaternion targetRotation;
 
     private int startnum;
@@ -17,6 +17,7 @@ public class Stage2_Boss_RotateAttack : MonoBehaviour
     void Start()
     {
         targetRotation = transform.rotation;
+        isMoving = false;
         startnum = 0;
     }
 
@@ -24,7 +25,7 @@ public class Stage2_Boss_RotateAttack : MonoBehaviour
     {
         GameObject manager_Stage2RandomMove = GameObject.Find("Manager_Stage2RandomMove");
         Boss_RamdomMove BRM = manager_Stage2RandomMove.GetComponent<Boss_RamdomMove>();
-        if (BRM.behavior2Active == true)
+        if (BRM.behavior1Active == true)
         {
             if (startnum == 0)
             {
@@ -33,6 +34,8 @@ public class Stage2_Boss_RotateAttack : MonoBehaviour
                 playerPos.y = transform.position.y;
                 transform.LookAt(playerPos);
                 startnum = 1;
+                isMoving = true;
+
             }
 
             if (isMoving)
