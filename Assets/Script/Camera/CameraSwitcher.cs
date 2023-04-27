@@ -59,6 +59,9 @@ public class CameraSwitcher : MonoBehaviour
 
             //画像表示
             intaractImage.enabled = true;
+
+            //インタラクトフラグ通知をプレイヤーに贈る
+            other.gameObject.GetComponent<IntaractChacker>().SetCameraSwitcher(this);
         }
     }
 
@@ -71,6 +74,9 @@ public class CameraSwitcher : MonoBehaviour
 
             //画像非表示
             intaractImage.enabled = false;
+
+            //インタラクトフラグがfalseになった通知をプレイヤーに贈る
+            other.gameObject.GetComponent<IntaractChacker>().SetCameraSwitcher(null);
         }
     }
 }
