@@ -82,6 +82,7 @@ public class TimePileScript : MonoBehaviour
 
             //ƒvƒŒƒCƒ„[‚Ìk‚ğ–ß‚·
             pS.FinishExtend();
+
         }
         
 

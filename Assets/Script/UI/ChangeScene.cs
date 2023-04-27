@@ -9,11 +9,17 @@ public class ChangeScene : MonoBehaviour
     //遷移先のシーン
     public string nextScene;
 
+    //時間経過でシーン遷移する場合
+    public bool bTimeFlag;
+
     public static string loadAfterScene;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(bTimeFlag)
+        {
+            Invoke("Change", 3.0f);
+        }
     }
 
     // Update is called once per frame

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class CameraSwitcher : MonoBehaviour
 {
     public Transform player;
@@ -10,6 +12,10 @@ public class CameraSwitcher : MonoBehaviour
     public GameObject minimapcamera;
     public GameObject cube;
     public Camera secondCamera;
+
+    //インタラクトできるかのフラグ
+    public bool intaractFlag;
+    public Image intaractImage;
 
     void Start()
     {
@@ -26,11 +32,51 @@ public class CameraSwitcher : MonoBehaviour
             && player.position.y <= cameraChangePoint.position.y + 1.5f && player.position.y >= cameraChangePoint.position.y - 1.5f
             && player.position.x <= cameraChangePoint.position.x + 1.5f && player.position.x >= cameraChangePoint.position.x - 1.5f)
         {
-            mainCamera.enabled = !mainCamera.enabled;
+            
+        }
+    }
+
+    //ワープ
+    public void Intaract()
+    {
+        if(intaractFlag)
+        {
+            mainCamera.enabled = false;
             // ゲームオブジェクトを見えなくする
             minimapcamera.SetActive(false);
-            secondCamera.enabled = !secondCamera.enabled;
+            secondCamera.enabled = true;
             player.position = cube.transform.position;
+        }
+       
+    }
+
+    //Playerがトリガーしたか
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            intaractFlag = true;
+
+            //画像表示
+            intaractImage.enabled = true;
+
+            //インタラクトフラグ通知をプレイヤーに贈る
+            other.gameObject.GetComponent<IntaractChacker>().SetCameraSwitcher(this);
+        }
+    }
+
+    //Playerがトリガーから外れたか
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            intaractFlag = false;
+
+            //画像非表示
+            intaractImage.enabled = false;
+
+            //インタラクトフラグがfalseになった通知をプレイヤーに贈る
+            other.gameObject.GetComponent<IntaractChacker>().SetCameraSwitcher(null);
         }
     }
 }
