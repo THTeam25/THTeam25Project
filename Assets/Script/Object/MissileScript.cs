@@ -18,7 +18,11 @@ public class MissileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target.transform);
+        // Quaternion(回転値)を取得
+        Quaternion quaternion = Quaternion.LookRotation(target.transform.position - transform.position);
+        // 算出した回転値をこのゲームオブジェクトのrotationに代入
+        transform.rotation = quaternion;
+
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 }

@@ -9,7 +9,7 @@ public class Stage3_Attack3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InvokeRepeating("Spawnmissile",3.0f,1.0f);
+        //InvokeRepeating("SpawnMissile",3.0f,10.0f);
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Stage3_Attack3 : MonoBehaviour
     }
 
     //missile”­ŽË
-    public void Spawnmissile()
+    public void SpawnMissile()
     {
         Instantiate(missile, transform.position, Quaternion.identity);
     }
