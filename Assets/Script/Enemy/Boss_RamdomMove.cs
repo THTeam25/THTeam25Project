@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage1_Boss_RamdomBullet : MonoBehaviour
+public class Boss_RamdomMove : MonoBehaviour
 {
     [SerializeField]
     public bool behavior1Active = false;
@@ -12,21 +12,69 @@ public class Stage1_Boss_RamdomBullet : MonoBehaviour
     public bool behavior3Active = false;
     [SerializeField]
     public bool behavior4Active = false;
+
+    public int stageNo = 0;
+
     [SerializeField]
     private float timer = 0f;
     [SerializeField]
     private float behaviorDuration = 10f;
 
-    private int randomBehavior = 0;
+    //private int randomBehavior = 0;
+    private int startnum;
 
     private void Start()
     {
-        // 挙動1を初期化
-        behavior1Active = true;
+        startnum = 0;
+
     }
 
     private void Update()
     {
+
+        GameObject cameraChangePoint_Boss = GameObject.Find("CameraChangePoint_Boss");
+        CameraSwitcher CS = cameraChangePoint_Boss.GetComponent<CameraSwitcher>();
+        if (CS.bossmoveflag == true)
+        {
+            if (stageNo == 1)
+            {
+                Stage1Active();
+            }
+
+            else if (stageNo == 2)
+            {
+                Stage2Active();
+            }
+
+        }
+    }
+
+    // 挙動をアクティブにする
+    private void ActivateBehavior(int behavior)
+    {
+        switch (behavior)
+        {
+            case 2:
+                behavior2Active = true;
+                break;
+            case 3:
+                behavior3Active = true;
+                break;
+            case 4:
+                behavior4Active = true;
+                break;
+        }
+    }
+
+    private void Stage1Active()
+    {
+
+        if (startnum == 0)
+        {
+            // 挙動1を初期化
+            behavior1Active = true;
+            startnum = 1;
+        }
         // タイマーを更新
         timer += Time.deltaTime;
 
@@ -46,9 +94,9 @@ public class Stage1_Boss_RamdomBullet : MonoBehaviour
                 behavior2Active = false;
                 timer = 0f;
 
-                // ランダムに挙動3, 4を選択
-                int randomBehavior = Random.Range(3, 4);
-                ActivateBehavior(randomBehavior);
+                // ランダムに挙動2
+                behavior1Active = false;
+                behavior2Active = false;
             }
         }
         // 挙動3を実行
@@ -84,21 +132,17 @@ public class Stage1_Boss_RamdomBullet : MonoBehaviour
         //    timer = 0f;
         //}
     }
-
-    // 挙動をアクティブにする
-    private void ActivateBehavior(int behavior)
+    private void Stage2Active()//2は時間じゃなく、個々のスクリプトで制御
     {
-        switch (behavior)
+
+        if (startnum == 0)
         {
-            case 2:
-                behavior2Active = true;
-                break;
-            case 3:
-                behavior3Active = true;
-                break;
-            case 4:
-                behavior4Active = true;
-                break;
+            // 挙動1を初期化
+            behavior1Active = true;
+            startnum = 1;
         }
+        // タイマーを更新
+        timer += Time.deltaTime;
     }
 }
+

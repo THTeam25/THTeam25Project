@@ -59,7 +59,7 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
             elapsedTime += Time.deltaTime;
             if (elapsedTime >= chasetime)
             {
-                // コライダーのトリガーモードをオンにする
+                // コライダーのトリガーモードをオフにする
                 GetComponent<Collider>().isTrigger = false;
                 // オブジェクトを落下させる
                 GetComponent<Rigidbody>().useGravity = true;
@@ -74,7 +74,7 @@ public class Stage1_Boss_AboveThePlayerBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Boss"))
         {
             //Bossの体力のスクリプト
-            Stage1_Boss_HealthManager stage1_Boss_HealthManager = collision.gameObject.GetComponent<Stage1_Boss_HealthManager>();
+            Boss_HealthManager stage1_Boss_HealthManager = collision.gameObject.GetComponent<Boss_HealthManager>();
 
             stage1_Boss_HealthManager.TakeDamage(1);
             Destroy(gameObject); //自身を削除

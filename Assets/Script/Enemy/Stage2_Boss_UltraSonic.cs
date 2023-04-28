@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
+public class Stage2_Boss_UltraSonic : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject player;
@@ -10,31 +10,54 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
 
     public float bulletwait = 1.0f;//弾の発射間隔
     public float bulletspeed = 10.0f;
+    public float attackTime = 10.0f;
 
-    private float time;
+    public float time;
+    public float timer;
+    //private bool isShot = false;//発射フラグ
 
     //エネミーのリジットボディ
     private Rigidbody enemyRb;
+
+    private float countnum;
 
     // Start is called before the first frame update
     void Start()
     {
         time = bulletwait;
-        
+        timer = attackTime;
+        countnum = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //挙動を変えるスクリプト取得
-        GameObject manager_RandomBullet = GameObject.Find("Manager_RandomBullet");
-        Boss_RamdomMove S1B_BR = manager_RandomBullet.GetComponent<Boss_RamdomMove>();
-
-        if (S1B_BR.behavior3Active == true)
+        GameObject manager_Stage2RandomMove = GameObject.Find("Manager_Stage2RandomMove");
+        Boss_RamdomMove BRM = manager_Stage2RandomMove.GetComponent<Boss_RamdomMove>();
+        if (BRM.behavior2Active == true)
         {
+            if(countnum==0)
+            {
+                timer = attackTime;
+                countnum = 1;
+            }
+            else
+            {
+                if (timer <= 0)
+                {
+                    BRM.behavior2Active = false;
+                    BRM.behavior3Active = true;
+                    countnum = 0;
+                }
+            }
+
             Shot();
+            timer -= Time.deltaTime;
+
+            
         }
-         
+        
+            
     }
 
 
@@ -57,7 +80,7 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
         if (time <= 0)//タイムが0になったら
         {
             //弾を出現させる地点
-            Vector3 vec = transform.position + transform.forward * 0.5f; //キャラクターの位置より少し前
+            Vector3 vec = transform.position + transform.forward * 1.0f; //キャラクターの位置より少し前
             var shot = Instantiate(bullet, vec, Quaternion.identity);//生成
             shot.GetComponent<Rigidbody>().velocity = transform.forward.normalized * bulletspeed;
 
@@ -65,5 +88,6 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
         }
     }
 
-    //発射フラグ設定
+
+
 }
