@@ -10,6 +10,7 @@ TagManager:
   - MiniMapCamera
   - Boss
   - Screen
+  - Bullet
   layers:
   - Default
   - TransparentFX

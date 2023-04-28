@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletScript : MonoBehaviour
+public class UltraSonicBulletScript : MonoBehaviour
 {
     float startTime; //発射時刻
     public float Timer = 0.5f; //経過時刻
+    public float upsize = 0.5f;
     //エネミーのリジットボディ
     private Rigidbody enemyRb;
     // Start is called before the first frame update
@@ -17,6 +18,10 @@ public class EnemyBulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        
+        this.transform.localScale += new Vector3(0, upsize, 0);
+
         if (startTime + Timer < Time.time) //発射からTimer分の時間経ったら
         {
             Destroy(gameObject); //自身を削除
@@ -25,13 +30,19 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             //Playerの体力のスクリプト
             PlayerLifeScript ps = collision.gameObject.GetComponent<PlayerLifeScript>();
 
             ps.TakeDamage(1);
 
+            //自身を削除
+            Destroy(gameObject);
+
+        }
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
             //自身を削除
             Destroy(gameObject);
 
