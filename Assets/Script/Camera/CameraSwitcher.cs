@@ -17,6 +17,11 @@ public class CameraSwitcher : MonoBehaviour
     public bool intaractFlag;
     public Image intaractImage;
 
+
+    //モデル
+    public GameObject open;
+    public GameObject close;
+
     void Start()
     {
         // 最初はmainCameraとminimap~を有効にする
@@ -62,6 +67,10 @@ public class CameraSwitcher : MonoBehaviour
 
             //インタラクトフラグ通知をプレイヤーに贈る
             other.gameObject.GetComponent<IntaractChacker>().SetCameraSwitcher(this);
+
+            open.SetActive(true);
+            close.SetActive(false);
+
         }
     }
 
@@ -77,6 +86,9 @@ public class CameraSwitcher : MonoBehaviour
 
             //インタラクトフラグがfalseになった通知をプレイヤーに贈る
             other.gameObject.GetComponent<IntaractChacker>().SetCameraSwitcher(null);
+
+            open.SetActive(false);
+            close.SetActive(true);
         }
     }
 }

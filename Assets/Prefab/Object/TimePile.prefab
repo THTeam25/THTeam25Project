@@ -143,3 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disappearTime: 3
   displayTime: 3
+  bStartr: 0
+  bFirstHidden: 0
