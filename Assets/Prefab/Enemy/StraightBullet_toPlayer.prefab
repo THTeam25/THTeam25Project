@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8503532815209062741}
   - component: {fileID: 8503532815209062740}
   m_Layer: 6
-  m_Name: StraightBullet
+  m_Name: StraightBullet_toPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   deathTime: 5
-  toPlayer: 0
+  toPlayer: 1
 --- !u!54 &8503532815209062740
 Rigidbody:
   m_ObjectHideFlags: 0

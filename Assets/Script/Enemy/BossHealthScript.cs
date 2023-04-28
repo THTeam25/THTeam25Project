@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BossHealthScript : MonoBehaviour
+{
+    //ç≈ëÂHP
+    public int maxHP;
+    //åªç›ëÃóÕ
+    public int HP;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        HP = maxHP;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    //É_ÉÅÅ[ÉWÇó^Ç¶ÇÈ
+    public void TakeDamage(int val)
+    {
+        HP -= val;
+
+        if(HP <= 0)
+        {
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        GetComponent<ChangeScene>().Change();
+        Destroy(gameObject);
+    }
+}

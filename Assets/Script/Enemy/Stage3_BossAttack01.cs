@@ -10,7 +10,7 @@ public class Stage3_BossAttack01 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //InvokeRepeating("SpawnBullettoPlayer", 3.0f,1.0f);
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Stage3_BossAttack01 : MonoBehaviour
         
     }
 
-    public void SpawnBullet()
+    public void SpawnBullettoPlayer()
     {
         Instantiate(bullet,transform.position + new Vector3(0,3,0),transform.rotation);
     }

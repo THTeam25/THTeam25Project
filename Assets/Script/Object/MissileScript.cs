@@ -9,10 +9,17 @@ public class MissileScript : MonoBehaviour
 
     //ターゲットオブジェクト
     GameObject target;
+    //発射時間
+    float fireTime;
+
+    public float deathTime = 20.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Player");
+
+        fireTime = Time.time;
     }
 
     // Update is called once per frame
@@ -24,5 +31,10 @@ public class MissileScript : MonoBehaviour
         transform.rotation = quaternion;
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        if(Time.time - fireTime > deathTime)
+        {
+            Destroy(gameObject);
+        }
     }
 }

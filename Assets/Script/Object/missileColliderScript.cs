@@ -34,5 +34,17 @@ public class missileColliderScript : MonoBehaviour
             //オブジェクト削除
             Destroy(transform.parent.gameObject);
         }
+        else if(collision.gameObject.CompareTag("Boss"))
+        {
+            collision.gameObject.GetComponentInParent<BossHealthScript>().TakeDamage(1);
+
+            //オブジェクト削除
+            Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            //オブジェクト削除
+            Destroy(transform.parent.gameObject);
+        }
     }
 }
