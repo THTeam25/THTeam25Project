@@ -399,7 +399,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     //PlayerêLÇŒÇ∑èIóπ
-    private void FinishExtend()
+    public void FinishExtend()
     {
         Vector3 tempscal = transform.localScale;
         tempscal.y = defaultScaleY;
