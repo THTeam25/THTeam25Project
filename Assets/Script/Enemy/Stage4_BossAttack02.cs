@@ -44,7 +44,7 @@ public class Stage4_BossAttack02 : MonoBehaviour
 
             goal = transform.position + Vector3.up * 30;
 
-            InvokeRepeating("Move2",0,Time.deltaTime);
+            InvokeRepeating("Move2",3,Time.deltaTime);
         }
     }
 
@@ -62,7 +62,7 @@ public class Stage4_BossAttack02 : MonoBehaviour
 
             goal = initPos;
 
-            InvokeRepeating("Move3", 0, Time.deltaTime);
+            InvokeRepeating("Move3", 3, Time.deltaTime);
         }
     }
 
