@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc1123812ab8054d9a33f78a527dff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pT: 2
+  pT: 0
   speed: 6
   leftX: 0
   jumpPower: 1500
@@ -467,7 +467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8304784744970021538
 Transform:
   m_ObjectHideFlags: 0

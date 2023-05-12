@@ -33,6 +33,8 @@ public class Stage4_BossAttackManager : MonoBehaviour
 
     void Attack()
     {
+        count = Random.Range(0, 3);
+
         switch (count)
         {
             case 0:
@@ -45,10 +47,6 @@ public class Stage4_BossAttackManager : MonoBehaviour
                 attack3.SpawnBullet();
                 break;
         }
-
-        count++;
-
-        count %= 3;
 
     }
 }
