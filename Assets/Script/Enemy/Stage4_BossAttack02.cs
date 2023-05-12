@@ -50,7 +50,7 @@ public class Stage4_BossAttack02 : MonoBehaviour
 
     void Move2()
     {
-        transform.Translate((goal - transform.position) * speed * Time.deltaTime);
+        transform.Translate((goal - transform.position) * speed * 2 * Time.deltaTime);
 
         if (Vector3.Distance(goal, transform.position) <= 0.1f)
         {
@@ -68,7 +68,7 @@ public class Stage4_BossAttack02 : MonoBehaviour
 
     void Move3()
     {
-        transform.Translate((goal - transform.position) * speed * Time.deltaTime);
+        transform.Translate((goal - transform.position) * speed * 2 * Time.deltaTime);
 
         if (Vector3.Distance(goal, transform.position) <= 0.1f)
         {
