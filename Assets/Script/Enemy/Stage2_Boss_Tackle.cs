@@ -26,7 +26,7 @@ public class Stage2_Boss_Tackle : MonoBehaviour
         Boss_RamdomMove BRM = manager_Stage2RandomMove.GetComponent<Boss_RamdomMove>();
         if (BRM.behavior3Active == true)
         {
-            if(countnum == 0)
+            if (countnum == 0)
             {
                 time = timer;
                 countnum = 1;
@@ -43,7 +43,7 @@ public class Stage2_Boss_Tackle : MonoBehaviour
                 {
                     reachedPlayer = true;  // 到達フラグを立てる
                 }
-                if(time <= 0.0f)
+                if (time <= 0.0f)
                 {
                     reachedPlayer = true;//到達してないけどフラグ立てる
                 }
@@ -59,7 +59,7 @@ public class Stage2_Boss_Tackle : MonoBehaviour
                     reachedTarget = true;  // 到達フラグを立てる
                 }
             }
-            if(reachedTarget)
+            if (reachedTarget)
             {
                 BRM.behavior3Active = false;
                 BRM.behavior2Active = true;
@@ -79,6 +79,14 @@ public class Stage2_Boss_Tackle : MonoBehaviour
             ps.TakeDamage(1);
 
 
+        }
+        if (collision.gameObject.CompareTag("Screen"))
+        {
+            //Bossの体力のスクリプト
+            Boss_HealthManager stage2_Boss_HealthManager = collision.gameObject.GetComponent<Boss_HealthManager>();
+
+            stage2_Boss_HealthManager.TakeDamage(1);
+            Destroy(gameObject); //自身を削除
         }
     }
 }
