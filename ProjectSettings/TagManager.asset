@@ -11,6 +11,8 @@ TagManager:
   - Boss
   - Screen
   - Bullet
+  - Pile
+  - Enemy
   layers:
   - Default
   - TransparentFX
