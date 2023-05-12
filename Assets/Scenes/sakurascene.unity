@@ -1363,6 +1363,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8830685697510662024, guid: f0b35e68843e63743857ad68733a094e, type: 3}
   m_PrefabInstance: {fileID: 715204139}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1065783276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7356000800263018699, guid: 8667211e7b1aec2458fa74e1703c6652, type: 3}
+  m_PrefabInstance: {fileID: 147642129455396798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300281025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2325,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119236951}
   m_CullTransparentMesh: 1
+--- !u!1 &2124425981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5112616734671333715, guid: 8667211e7b1aec2458fa74e1703c6652, type: 3}
+  m_PrefabInstance: {fileID: 147642129455396798}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &147642129455396798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2387,6 +2397,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage2_Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 5112616736335314042, guid: 8667211e7b1aec2458fa74e1703c6652, type: 3}
+      propertyPath: open
+      value: 
+      objectReference: {fileID: 2124425981}
+    - target: {fileID: 5112616736335314042, guid: 8667211e7b1aec2458fa74e1703c6652, type: 3}
+      propertyPath: close
+      value: 
+      objectReference: {fileID: 1065783276}
     - target: {fileID: 5112616736335314042, guid: 8667211e7b1aec2458fa74e1703c6652, type: 3}
       propertyPath: player
       value: 
