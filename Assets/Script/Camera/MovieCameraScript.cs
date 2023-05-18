@@ -24,5 +24,14 @@ public class MovieCameraScript : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        ////スキップ機能
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    gameObject.SetActive(false);
+        //}
+    }
+    public void Skip()
+    {
+        gameObject.SetActive(false);
     }
 }

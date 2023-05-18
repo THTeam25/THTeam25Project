@@ -27,7 +27,7 @@ public class PileMoveScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(bMove)
         {

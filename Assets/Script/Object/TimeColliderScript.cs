@@ -18,6 +18,9 @@ public class TimeColliderScript : MonoBehaviour
     [SerializeField]
     private bool isdisplay;//先に表示するか
 
+    [SerializeField]
+    private bool isfade;//半透明にするか
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class TimeColliderScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         time += Time.deltaTime;
 
@@ -60,31 +63,25 @@ public class TimeColliderScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Pile"))
+        if (other.gameObject.CompareTag("Pile")|| other.gameObject.CompareTag("Enemy"))
         {
             if (startflag == true)
             {
                 if (isdisplay == true)
                 {
+                    other.GetComponent<Renderer>().material.color = new Color(other.GetComponent<Renderer>().material.color.r, other.GetComponent<Renderer>().material.color.g, other.GetComponent<Renderer>().material.color.b, 1.0f);
                     other.GetComponent<Renderer>().enabled = true;//表示
                 }
                 else if (isdisplay == false)
                 {
-                    other.GetComponent<Renderer>().enabled = false;//非表示
-                }
-            }
-        }
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            if (startflag == true)
-            {
-                if (isdisplay == true)
-                {
-                    other.GetComponent<Renderer>().enabled = true;//表示
-                }
-                else if (isdisplay == false)
-                {
-                    other.GetComponent<Renderer>().enabled = false;//非表示
+                    if(isfade == false)
+                    {
+                        other.GetComponent<Renderer>().enabled = false;//非表示
+                    }
+                    else if (isfade == true)
+                    {
+                        other.GetComponent<Renderer>().material.color = new Color(other.GetComponent<Renderer>().material.color.r, other.GetComponent<Renderer>().material.color.g, other.GetComponent<Renderer>().material.color.b, 0.5f);
+                    }
                 }
             }
         }
