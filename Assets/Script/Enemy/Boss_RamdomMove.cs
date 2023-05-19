@@ -32,7 +32,7 @@ public class Boss_RamdomMove : MonoBehaviour
     private void Update()
     {
 
-        GameObject cameraChangePoint_Boss = GameObject.Find("CameraChangePoint_Stage1_Boss");
+        GameObject cameraChangePoint_Boss = GameObject.Find("CameraChangePoint_Boss");
         CameraSwitcher CS = cameraChangePoint_Boss.GetComponent<CameraSwitcher>();
         if (CS.bossmoveflag == true)
         {
