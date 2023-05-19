@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SkipCamera",
+                    "type": "Button",
+                    "id": "a94f3729-2ab3-4e34-90ab-9522ba46148f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -631,6 +640,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Intaract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a260cc21-e67d-468c-a8f7-3a280d271a46",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SkipCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6a6d2ff5-0e92-4ce9-92c4-044fc24d784a",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SkipCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
