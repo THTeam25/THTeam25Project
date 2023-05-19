@@ -3120,6 +3120,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7810782425798388244, guid: 5c779e38df1b88e49a13cd71e89f34d3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: af758132f96808040962a1ffaf0f44b3, type: 2}
     - target: {fileID: 8245955284003632176, guid: 5c779e38df1b88e49a13cd71e89f34d3, type: 3}
       propertyPath: m_Name
       value: Stage1_Boss
@@ -4913,18 +4917,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_ActionId
       value: 02098cc9-2cad-4f09-a682-102ddb91b153
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_ActionId
+      value: a94f3729-2ab3-4e34-90ab-9522ba46148f
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_ActionName
       value: UI/SkipCamera[/Keyboard/space]
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_ActionName
+      value: Player/SkipCamera[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
@@ -4932,7 +4948,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1706254855}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1706254855}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
@@ -4940,7 +4964,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Skip
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Skip
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
@@ -4948,7 +4980,15 @@ PrefabInstance:
       value: SkipMovingCameraScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SkipMovingCameraScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[23].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
