@@ -738,6 +738,15 @@
                     "processors": "",
                     "interactions": "Press(behavior=1)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SkipCamera",
+                    "type": "Button",
+                    "id": "02098cc9-2cad-4f09-a682-102ddb91b153",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1162,7 +1171,7 @@
                 {
                     "name": "",
                     "id": "8e619d83-8eee-44a8-b8fc-cd8904d57c2f",
-                    "path": "<Keyboard>/anyKey",
+                    "path": "yKeyboard>/anyKey",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -1189,6 +1198,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "TitleStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48ea3148-a9f2-4dd0-8433-fcec7895ff9e",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SkipCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39836f64-a159-4730-af01-b218a50beb97",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SkipCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
