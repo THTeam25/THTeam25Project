@@ -11,18 +11,31 @@ public class CircleMovePileScript : MonoBehaviour
 
     private float currentAngle = 0f;
     private bool isMovingForward = true;
-    private float timer = 0f;
+    public float timer = 0f;
 
     private Vector3 centerPos;
+    private float starttimer = 0f;
+
 
     private void Start()
     {
         centerPos = transform.position + Vector3.up * radius;
+        GetComponent<CapsuleCollider>().enabled = false;
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
+        if(starttimer < 0.5f)
+        {
+            starttimer += Time.deltaTime;
+        }
+        else if (starttimer >= 0.5f)
+        {
+            GetComponent<CapsuleCollider>().enabled = true;
+        }
+
+            timer += Time.deltaTime;
+
 
         if (timer >= changeDirectionTime)
         {
