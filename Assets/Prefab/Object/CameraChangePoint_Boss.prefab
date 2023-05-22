@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 7810671221540150659}
   - component: {fileID: 7810671221540150669}
   m_Layer: 0
-  m_Name: CameraChangePoint_Stage1_Boss
+  m_Name: CameraChangePoint_Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
