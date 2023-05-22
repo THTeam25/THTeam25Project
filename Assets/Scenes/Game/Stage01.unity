@@ -5409,7 +5409,7 @@ PrefabInstance:
       objectReference: {fileID: 2119236951}
     - target: {fileID: 7810671221540150663, guid: 4d7dec3029e7bb74e9fa386968067f36, type: 3}
       propertyPath: m_Name
-      value: CameraChangePoint_Stage1_Boss
+      value: CameraChangePoint_Boss
       objectReference: {fileID: 0}
     - target: {fileID: 7810671221540150668, guid: 4d7dec3029e7bb74e9fa386968067f36, type: 3}
       propertyPath: m_Pivot.x
