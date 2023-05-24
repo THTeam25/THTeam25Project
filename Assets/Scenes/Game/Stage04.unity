@@ -3490,6 +3490,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage3_Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8147243285134069966, guid: aa5496f1cc609f148958cf8280e0fb6e, type: 3}
+      propertyPath: HP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147243285134069966, guid: aa5496f1cc609f148958cf8280e0fb6e, type: 3}
+      propertyPath: maxHP
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5496f1cc609f148958cf8280e0fb6e, type: 3}
 --- !u!1001 &1497225727
