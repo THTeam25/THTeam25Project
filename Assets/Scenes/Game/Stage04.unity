@@ -2929,6 +2929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovieCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 1468929324949161112, guid: c654bc85ff8a6ae4ea36a8911fdea7a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c654bc85ff8a6ae4ea36a8911fdea7a6, type: 3}
 --- !u!1001 &1290539038
@@ -3758,6 +3762,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552230970}
   m_CullTransparentMesh: 1
+--- !u!1 &1572638635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1468929324949161112, guid: c654bc85ff8a6ae4ea36a8911fdea7a6, type: 3}
+  m_PrefabInstance: {fileID: 1270800268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1645897154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8830685697510662024, guid: f0b35e68843e63743857ad68733a094e, type: 3}
@@ -4460,6 +4469,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.103
       objectReference: {fileID: 0}
+    - target: {fileID: 1775779350508940248, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: movingcamera
+      value: 
+      objectReference: {fileID: 1572638635}
     - target: {fileID: 5366059039314679372, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -49,23 +49,6 @@ public class Boss_RamdomMove : MonoBehaviour
         }
     }
 
-    // 挙動をアクティブにする
-    private void ActivateBehavior(int behavior)
-    {
-        switch (behavior)
-        {
-            case 2:
-                behavior2Active = true;
-                break;
-            case 3:
-                behavior3Active = true;
-                break;
-            case 4:
-                behavior4Active = true;
-                break;
-        }
-    }
-
     private void Stage1Active()
     {
 
@@ -94,9 +77,8 @@ public class Boss_RamdomMove : MonoBehaviour
                 behavior2Active = false;
                 timer = 0f;
 
-                // ランダムに挙動2
-                behavior1Active = false;
-                behavior2Active = false;
+                // 挙動3を実行
+                behavior3Active = true;
             }
         }
         // 挙動3を実行
@@ -111,26 +93,6 @@ public class Boss_RamdomMove : MonoBehaviour
                 behavior1Active = true;
             }
         }
-        // 挙動4を実行
-        else if (behavior4Active)
-        {
-            if (timer >= behaviorDuration)
-            {
-                behavior4Active = false;
-                timer = 0f;
-
-                // 挙動1を再開
-                behavior1Active = true;
-            }
-        }
-
-        //// 5分の1の確率で挙動2を実行
-        //if (behavior1Active && !behavior2Active && Random.Range(0f, 1f) < 0.2f)
-        //{
-        //    behavior1Active = false;
-        //    behavior2Active = true;
-        //    timer = 0f;
-        //}
     }
     private void Stage2Active()//2は時間じゃなく、個々のスクリプトで制御
     {

@@ -13,6 +13,7 @@ TagManager:
   - Bullet
   - Pile
   - Enemy
+  - SoundManager
   layers:
   - Default
   - TransparentFX
