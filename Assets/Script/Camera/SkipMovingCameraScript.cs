@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkipMovingCameraScript : MonoBehaviour
 {
-    public GameObject movingcamera;
+    public Camera moviecamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,6 @@ public class SkipMovingCameraScript : MonoBehaviour
     }
     public void Skip()
     {
-        movingcamera.SetActive(false);
+        moviecamera.enabled = false;
     }
 }
