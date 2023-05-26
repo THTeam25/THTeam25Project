@@ -11,6 +11,10 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
     public float bulletwait = 1.0f;//弾の発射間隔
     public float bulletspeed = 10.0f;
 
+    private GameObject soundManager;
+    [SerializeField]
+    private AudioClip clip1;//ball
+
     private float time;
 
     //エネミーのリジットボディ
@@ -20,7 +24,8 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
     void Start()
     {
         time = bulletwait;
-        
+        soundManager = GameObject.Find("SoundManager");
+
     }
 
     // Update is called once per frame
@@ -59,6 +64,7 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
             //弾を出現させる地点
             Vector3 vec = transform.position + transform.forward * 0.5f; //キャラクターの位置より少し前
             var shot = Instantiate(bullet, vec, Quaternion.identity);//生成
+            soundManager.GetComponent<SoundManagerScript>().PlaySe(clip1);
             shot.GetComponent<Rigidbody>().velocity = transform.forward.normalized * bulletspeed;
 
             time = bulletwait;

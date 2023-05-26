@@ -10,8 +10,15 @@ public class PlayerLifeUIScript : MonoBehaviour
     private int lifePoint = 10;
     private bool Flag;
 
+    [SerializeField]
+    private GameObject soundManager;
+    [SerializeField]
+    AudioClip clip1;//“G‚É“–‚½‚é‰¹
+
+
     void Start()
     {
+        soundManager = GameObject.Find("SoundManager");
     }
 
     void Update()
@@ -32,6 +39,7 @@ public class PlayerLifeUIScript : MonoBehaviour
         {
             lifeArray[lifePoint - 1].SetActive(false);
             lifePoint--;
+            soundManager.GetComponent<SoundManagerScript>().PlaySe(clip1);
             Flag = false;
         }
     }
