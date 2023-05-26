@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 154194346}
   - component: {fileID: 154194345}
   - component: {fileID: 154194348}
+  - component: {fileID: 154194349}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -407,6 +408,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Stage2
   bTimeFlag: 0
+--- !u!114 &154194349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154194343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
 --- !u!1 &187471422
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +569,7 @@ GameObject:
   - component: {fileID: 202896090}
   - component: {fileID: 202896089}
   - component: {fileID: 202896092}
+  - component: {fileID: 202896093}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -691,6 +706,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Stage03
   bTimeFlag: 0
+--- !u!114 &202896093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202896087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
 --- !u!1 &280407091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1074,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 54cb8f3e-64a4-4e23-9c8c-82e3e261ac91
     m_ActionName: Player/Intaract[/XInputControllerWindows/buttonSouth,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a94f3729-2ab3-4e34-90ab-9522ba46148f
+    m_ActionName: Player/SkipCamera[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 02098cc9-2cad-4f09-a682-102ddb91b153
+    m_ActionName: UI/SkipCamera[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -1348,6 +1384,7 @@ GameObject:
   - component: {fileID: 714928568}
   - component: {fileID: 714928567}
   - component: {fileID: 714928570}
+  - component: {fileID: 714928571}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1484,6 +1521,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextUI: {fileID: 1924398978}
   nextButton: {fileID: 1463945907}
+--- !u!114 &714928571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714928565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
 --- !u!1 &932861107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1547,7 @@ GameObject:
   - component: {fileID: 932861110}
   - component: {fileID: 932861109}
   - component: {fileID: 932861112}
+  - component: {fileID: 932861113}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1633,6 +1684,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Stage01
   bTimeFlag: 0
+--- !u!114 &932861113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932861107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
 --- !u!1 &934635061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,6 +1709,7 @@ GameObject:
   - component: {fileID: 934635065}
   - component: {fileID: 934635064}
   - component: {fileID: 934635063}
+  - component: {fileID: 934635066}
   m_Layer: 5
   m_Name: Button (4)
   m_TagString: Untagged
@@ -1755,6 +1820,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934635061}
   m_CullTransparentMesh: 1
+--- !u!114 &934635066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934635061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
 --- !u!1 &981601642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,6 +2135,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 54cb8f3e-64a4-4e23-9c8c-82e3e261ac91
     m_ActionName: Player/Intaract[/XInputControllerWindows/buttonSouth,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a94f3729-2ab3-4e34-90ab-9522ba46148f
+    m_ActionName: Player/SkipCamera[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 02098cc9-2cad-4f09-a682-102ddb91b153
+    m_ActionName: UI/SkipCamera[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -2182,13 +2268,14 @@ GameObject:
   - component: {fileID: 1102389965}
   - component: {fileID: 1102389964}
   - component: {fileID: 1102389963}
+  - component: {fileID: 1102389966}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1102389962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2292,6 +2379,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102389961}
   m_CullTransparentMesh: 1
+--- !u!114 &1102389966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102389961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
 --- !u!1 &1121850876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,6 +2527,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121850876}
   m_CullTransparentMesh: 1
+--- !u!1001 &1272243117
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000017117709
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 150.91998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -71.49999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289877, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
 --- !u!1 &1282115886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,6 +3002,7 @@ GameObject:
   - component: {fileID: 1463945910}
   - component: {fileID: 1463945909}
   - component: {fileID: 1463945912}
+  - component: {fileID: 1463945913}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2981,6 +3139,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Stage01
   bTimeFlag: 0
+--- !u!114 &1463945913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463945907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
 --- !u!1 &1599178490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3792,6 +3963,7 @@ GameObject:
   - component: {fileID: 2138922653}
   - component: {fileID: 2138922652}
   - component: {fileID: 2138922655}
+  - component: {fileID: 2138922656}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -3928,3 +4100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Stage04
   bTimeFlag: 0
+--- !u!114 &2138922656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138922650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e57da3d654f6dc4db47560b790f0d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}

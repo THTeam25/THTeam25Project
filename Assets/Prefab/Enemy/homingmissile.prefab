@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6847922845894132572}
   - component: {fileID: 6847922845894132575}
+  - component: {fileID: -3627368203621856641}
   m_Layer: 0
   m_Name: homingmissile
   m_TagString: Untagged
@@ -46,6 +47,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  deathTime: 20
+--- !u!114 &-3627368203621856641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6847922845894132573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0bdbe7cd7e9a9409769dcd702c2887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSound: {fileID: 8300000, guid: fa5f8bbc7e7b1da4dadbddffc9283a04, type: 3}
 --- !u!1001 &6847922845309866387
 PrefabInstance:
   m_ObjectHideFlags: 0
