@@ -18,6 +18,9 @@ public class CameraSwitcher : MonoBehaviour
     public bool intaractFlag;
     public Image intaractImage;
 
+    //サウンド
+    SoundManagerScript sMS;
+    public AudioClip openSound; 
 
     //モデル
     public GameObject open;
@@ -30,6 +33,9 @@ public class CameraSwitcher : MonoBehaviour
         minimapcamera.SetActive(true);
         secondCamera.enabled = false;
         bossmoveflag = false;
+
+        //サウンドマネージャー取得
+        sMS = GameObject.Find("SoundManager").GetComponent<SoundManagerScript>();
     }
 
         void Update()
@@ -74,6 +80,7 @@ public class CameraSwitcher : MonoBehaviour
             open.SetActive(true);
             close.SetActive(false);
 
+            sMS.PlaySe(openSound);
         }
     }
 

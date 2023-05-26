@@ -67,7 +67,7 @@ public class SoundManagerScript : MonoBehaviour
     {
         if (clip == null)
         {
-            Debug.Log("NUll");
+            
             return;
         }
 

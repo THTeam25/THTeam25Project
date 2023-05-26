@@ -48,8 +48,6 @@ public class PileScript : MonoBehaviour
             {
                 bSound = false;
                 sMS.PlaySe(pS.seize);
-
-                Debug.Log("NUll");
             }
 
         }
