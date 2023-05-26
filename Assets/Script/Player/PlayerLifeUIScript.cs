@@ -6,15 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLifeUIScript : MonoBehaviour
 {
-    public GameObject[] lifeArray = new GameObject[10];
+
+
 
     public bool gameOverFlag;
-    private int lifePoint = 10;
+
+    public GameObject[] lifeArray = new GameObject[5];
+    private int lifePoint = 5;
+
     private bool Flag;
 
     private GameObject soundManager;
     [SerializeField]
-    private AudioClip clip1;//�G�ɓ����鉹
+    private AudioClip clip1;//“G‚É“–‚½‚é‰¹
 
 
     void Start()
