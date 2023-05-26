@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    //サウンド
+    public AudioClip seize;
+    public AudioClip jump;
+    public AudioClip charge;
+
+    SoundManagerScript sMS;
     //柱タイプ
     public enum pileType
     {
@@ -78,6 +84,10 @@ public class PlayerScript : MonoBehaviour
 
         //スケール取得
         defaultScaleY = transform.localScale.y;
+
+        //サウンドマネージャー取得
+        sMS = GameObject.Find("SoundManager").GetComponent<SoundManagerScript>();
+
     }
 
     // Update is called once per frame
@@ -204,6 +214,11 @@ public class PlayerScript : MonoBehaviour
                 //フラグオン
                 jumpChargeFlag = true;
 
+                //サウンド
+                if(!isGround)
+                {
+                    sMS.PlaySe(charge);
+                }
 
             }
             else
@@ -259,6 +274,9 @@ public class PlayerScript : MonoBehaviour
         jumpValue = 0;
         jumpRatio = 0;
         flyMove = false;
+
+        //サウンド
+        sMS.PlaySe(jump);
     }
 
     //何かに当たったら
@@ -319,7 +337,7 @@ public class PlayerScript : MonoBehaviour
         switch (pT)
         {
             case pileType.Auto:
-
+                
                 break;
                 //押している間だけ
             case pileType.Keep:

@@ -7,12 +7,19 @@ public class PileScript : MonoBehaviour
     //PlayerScript
     private PlayerScript pS;
     //
-    private float playerPositionOffset = 0.3f; 
+    private float playerPositionOffset = 0.3f;
+
+    //サウンド
+    SoundManagerScript sMS;
+    bool bSound = true;
+    GameObject Player;
 
     // Start is called before the first frame update
     void Start()
     {
-        pS = GameObject.Find("Player").GetComponent<PlayerScript>();    
+        pS = GameObject.Find("Player").GetComponent<PlayerScript>();
+        //サウンドマネージャー取得
+        sMS = GameObject.Find("SoundManager").GetComponent<SoundManagerScript>();
     }
 
     // Update is called once per frame
@@ -35,6 +42,14 @@ public class PileScript : MonoBehaviour
 
             //柱につかまっているときは速度をゼロにする
             GameObject.Find("Player").GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+            //音を鳴らす
+            if(bSound)
+            {
+                bSound = false;
+                sMS.PlaySe(pS.seize);
+            }
+
         }
     }
 
@@ -63,6 +78,9 @@ public class PileScript : MonoBehaviour
             GameObject.Find("Player").GetComponent<PlayerScript>().hitPile = null;
 
             other.gameObject.GetComponent<PlayerScript>().isPile = false;
+
+            //サウンドフラグ
+            bSound = true;
         }
     }
 

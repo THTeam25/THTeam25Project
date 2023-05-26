@@ -382,6 +382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc1123812ab8054d9a33f78a527dff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seize: {fileID: 8300000, guid: 47eed3f85985a7046822a11c8892c794, type: 3}
+  jump: {fileID: 8300000, guid: 7dd5b1db3b2e153458609039c6b48bab, type: 3}
+  charge: {fileID: 8300000, guid: 5a05bab540dc8f44ca90d9523731b724, type: 3}
   pT: 0
   speed: 6
   leftX: 0
@@ -495,6 +498,8 @@ MonoBehaviour:
   - {fileID: 4337195218498195105}
   - {fileID: 4337195217413657784}
   - {fileID: 4337195217168081248}
+  soundManager: {fileID: 0}
+  clip1: {fileID: 0}
 --- !u!114 &1775779350508940248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a98d44733648f43af66c2bebdc0f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingcamera: {fileID: 1468929324949161112, guid: c654bc85ff8a6ae4ea36a8911fdea7a6, type: 3}
+  moviecamera: {fileID: 0}
 --- !u!1 &5366059039314679372
 GameObject:
   m_ObjectHideFlags: 0
