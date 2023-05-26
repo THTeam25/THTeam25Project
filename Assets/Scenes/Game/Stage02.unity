@@ -2865,6 +2865,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5418919482951289864, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289864, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 6c7e159b2a1445b438192766de6e313a, type: 3}
@@ -5492,7 +5496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2edebcb1ebcee049beffc26d9bc47ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  issound1: 0
+  issound1: 1
   starttimer: 0
   displaytime: 5
   disappeartime: 5
