@@ -2935,6 +2935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c654bc85ff8a6ae4ea36a8911fdea7a6, type: 3}
+--- !u!20 &1270800269 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1468929324949161110, guid: c654bc85ff8a6ae4ea36a8911fdea7a6, type: 3}
+  m_PrefabInstance: {fileID: 1270800268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1290539038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4469,6 +4474,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.103
       objectReference: {fileID: 0}
+    - target: {fileID: 1775779350508940248, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: moviecamera
+      value: 
+      objectReference: {fileID: 1270800269}
     - target: {fileID: 1775779350508940248, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: movingcamera
       value: 
