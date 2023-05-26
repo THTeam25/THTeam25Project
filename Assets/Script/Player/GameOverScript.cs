@@ -17,10 +17,14 @@ public class GameOverScript : MonoBehaviour
     private bool lightup;
     private float minusintensity;
     private int countnum = 0;
+    private GameObject soundManager;
+    [SerializeField]
+    private AudioClip clip1;
 
     private void Start()
     {
         countnum = 0;
+        soundManager = GameObject.Find("SoundManager");
     }
 
     private void Update()
@@ -38,6 +42,7 @@ public class GameOverScript : MonoBehaviour
                 Intensity = lightComponent.intensity;
                 lightup = false;
                 minusintensity = ((startIntensity / duration) / 60.0f);
+                soundManager.GetComponent<SoundManagerScript>().PlaySe(clip1);
                 countnum = 1;
             }
 

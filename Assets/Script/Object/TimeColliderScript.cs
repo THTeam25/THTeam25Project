@@ -56,7 +56,7 @@ public class TimeColliderScript : MonoBehaviour
         {
             if(isdisplay == true)//•\Ž¦‚·‚éê‡
             {
-                if (time >= 0.0f && issound1 == true && soundflag == false && countnum == 0)
+                if (time >= 2.5f && issound1 == true && soundflag == false && countnum == 0)
                 {
                     soundflag = true;
                     countnum = 1;
@@ -70,7 +70,7 @@ public class TimeColliderScript : MonoBehaviour
                 {
                     soundManager.GetComponent<SoundManagerScript>().PlaySe(clip1);
                     soundflag = false;
-                    countnum = 0;
+                   
                 }
             }
 
@@ -78,8 +78,10 @@ public class TimeColliderScript : MonoBehaviour
             {
                 if (time >= disappeartime)
                 {
+                    soundflag = false;
                     isdisplay = true;//•\Ž¦
                     time = 0.0f;
+                    countnum = 0;
                 }
             }
         }

@@ -2534,6 +2534,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5418919482951289864, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 87c8f2f4e47e4e1458730ddccb1f3f9e, type: 3}
     - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3139,7 +3143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: Stage01
   bTimeFlag: 0
-
 --- !u!114 &1463945913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3153,7 +3156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectSound: {fileID: 8300000, guid: dd40161d439cf4d48b623c418b36d1e4, type: 3}
-
 --- !u!1 &1599178490
 GameObject:
   m_ObjectHideFlags: 0

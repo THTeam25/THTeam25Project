@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e102677c4e5e24d93dffe2ebf3025c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 10
+  maxLife: 5
   life: 0
 --- !u!65 &715739928498131478
 BoxCollider:
@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775580c10f03ca745a2863e0304a785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverFlag: 0
   lifeArray:
   - {fileID: 4337195217988533389}
   - {fileID: 4337195217409734145}
@@ -499,13 +500,8 @@ MonoBehaviour:
   - {fileID: 4337195218498195105}
   - {fileID: 4337195217413657784}
   - {fileID: 4337195217168081248}
-
-  gameOverFlag: 0
+  - {fileID: 0}
   clip1: {fileID: 8300000, guid: c6da38d10beddf445931eeaff8d4e0b1, type: 3}
-
-  soundManager: {fileID: 0}
-
-
 --- !u!114 &1775779350508940248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,7 +515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moviecamera: {fileID: 0}
-
 --- !u!114 &176537524974260703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +533,7 @@ MonoBehaviour:
   plusintensity: 0
   Intensity: 0
   waitTime: 1
-
+  clip1: {fileID: 8300000, guid: 5df3d4f098de75749804fd91cdd5f0fe, type: 3}
 --- !u!1 &5366059039314679372
 GameObject:
   m_ObjectHideFlags: 0
