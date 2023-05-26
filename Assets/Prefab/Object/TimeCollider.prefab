@@ -161,6 +161,7 @@ MonoBehaviour:
   displaytime: 3
   disappeartime: 0
   isdisplay: 1
+  clip1: {fileID: 8300000, guid: b74efe3fd573d904693412939363e92e, type: 3}
 --- !u!54 &3173832725399220674
 Rigidbody:
   m_ObjectHideFlags: 0

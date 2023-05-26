@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TimeColliderScript : MonoBehaviour
 {
+    public bool issound1 = false;//ならすかどうか
     [SerializeField]
     private float starttimer = 0.0f;//開始までの時間
     [SerializeField]
@@ -13,22 +14,36 @@ public class TimeColliderScript : MonoBehaviour
 
     private float time;//時間
 
-
     private bool startflag;
+    private bool soundflag;//ならすかどうか
+    private int countnum;//ならすかどうか
     [SerializeField]
     private bool isdisplay;//先に表示するか
+
+
+    private GameObject soundManager;
+    private GameObject timeCollider_Master;
+    [SerializeField]
+    private AudioClip clip1;//タイマー音
 
     // Start is called before the first frame update
     void Start()
     {
         time = 0.0f;
+        countnum = 0;
         startflag = false;
+        soundflag = false;
+        soundManager = GameObject.Find("SoundManager");
+
+        timeCollider_Master = GameObject.Find("TimeCollider_Master");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         time += Time.deltaTime;
+
+
 
         //開始時間になったら
         if (time >= starttimer && startflag == false)
@@ -41,12 +56,24 @@ public class TimeColliderScript : MonoBehaviour
         {
             if(isdisplay == true)//表示する場合
             {
+                if (time >= 0.0f && issound1 == true && soundflag == false && countnum == 0)
+                {
+                    soundflag = true;
+                    countnum = 1;
+                }
                 if (time >= displaytime)
                 {
                     isdisplay = false;//非表示
                     time = 0.0f;
                 }
+                if (issound1 == true && timeCollider_Master.GetComponent<TimeColliderSoundScript>().issound == true && soundflag == true)
+                {
+                    soundManager.GetComponent<SoundManagerScript>().PlaySe(clip1);
+                    soundflag = false;
+                    countnum = 0;
+                }
             }
+
             else if(isdisplay == false)
             {
                 if (time >= disappeartime)

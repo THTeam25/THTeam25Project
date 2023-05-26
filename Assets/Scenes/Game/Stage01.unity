@@ -5007,6 +5007,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 176537524974260703, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: duration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 176537524974260703, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: lightComponent
+      value: 
+      objectReference: {fileID: 705507994}
     - target: {fileID: 667051453934670080, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5138,7 +5146,7 @@ PrefabInstance:
     - target: {fileID: 8418294212289883237, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: clip1
       value: 
-      objectReference: {fileID: 8300000, guid: ac752be0f77a1d94ba4055f8f29d4c99, type: 3}
+      objectReference: {fileID: 8300000, guid: c6da38d10beddf445931eeaff8d4e0b1, type: 3}
     - target: {fileID: 8418294212289883237, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: soundManager
       value: 
@@ -5343,6 +5351,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5418919482951289864, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a417a29c32ae7994087857c245576f70, type: 3}
     - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
       propertyPath: m_RootOrder
       value: 14

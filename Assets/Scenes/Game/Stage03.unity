@@ -4735,6 +4735,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 176537524974260703, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 176537524974260703, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: lightComponent
+      value: 
+      objectReference: {fileID: 705507994}
     - target: {fileID: 667051453934670080, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_Name
       value: Player
