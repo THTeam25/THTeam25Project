@@ -8,6 +8,8 @@ public class SoundManagerScript : MonoBehaviour
     AudioSource bgmAudioSource;
     [SerializeField]
     AudioSource seAudioSource;
+    [SerializeField]
+    AudioSource se3DAudioSource;
 
     public float BgmVolume
     {
@@ -43,7 +45,7 @@ public class SoundManagerScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     GameObject CheckOtherSoundManager()
@@ -71,5 +73,14 @@ public class SoundManagerScript : MonoBehaviour
         }
 
         seAudioSource.PlayOneShot(clip);
+    }
+    public void PlaySe3D(AudioClip clip)
+    {
+        if (clip == null)
+        {
+            return;
+        }
+
+        se3DAudioSource.PlayOneShot(clip);
     }
 }
