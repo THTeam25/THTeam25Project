@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLifeUIScript : MonoBehaviour
 {
-    public GameObject[] lifeArray = new GameObject[10];
-    private int lifePoint = 10;
+    public GameObject[] lifeArray = new GameObject[5];
+    private int lifePoint = 5;
     private bool Flag;
 
     [SerializeField]
