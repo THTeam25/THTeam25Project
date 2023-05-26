@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0bdbe7cd7e9a9409769dcd702c2887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSound: {fileID: 8300000, guid: fa5f8bbc7e7b1da4dadbddffc9283a04, type: 3}
+  spawnSound: {fileID: 8300000, guid: 56b8aeb4d751ee942b89bad7bc7b1094, type: 3}
 --- !u!1001 &6847922845309866387
 PrefabInstance:
   m_ObjectHideFlags: 0
