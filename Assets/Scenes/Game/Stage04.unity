@@ -2304,7 +2304,7 @@ PrefabInstance:
     - target: {fileID: 5418919482951289864, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 3a1fe0ba9f115024aadd5cc77caf3b03, type: 3}
+      objectReference: {fileID: 8300000, guid: fa2a962be52576a4db8bf5f108bd93b3, type: 3}
     - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -2348,6 +2348,14 @@ PrefabInstance:
     - target: {fileID: 5418919482951289865, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289867, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418919482951289867, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5418919482951289877, guid: 137421d6ef25fa0459f96a0473800b37, type: 3}
       propertyPath: m_Name
@@ -4543,6 +4551,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.103
       objectReference: {fileID: 0}
+    - target: {fileID: 667051453934670087, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: seize
+      value: 
+      objectReference: {fileID: 8300000, guid: 47eed3f85985a7046822a11c8892c794, type: 3}
     - target: {fileID: 1775779350508940248, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: moviecamera
       value: 
