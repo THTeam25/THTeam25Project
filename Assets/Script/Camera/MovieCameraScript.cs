@@ -21,7 +21,8 @@ public class MovieCameraScript : MonoBehaviour
         //ゴールについたら非アクティブ
         if(Vector3.SqrMagnitude(GoalPosition - transform.position) <= 1.0f)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            gameObject.GetComponent<Camera>().enabled = false;//ゴールについたら非アクティブにする
         }
     }
 }
