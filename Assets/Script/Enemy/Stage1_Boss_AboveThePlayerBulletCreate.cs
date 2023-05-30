@@ -5,6 +5,12 @@ using UnityEngine;
 public class Stage1_Boss_AboveThePlayerBulletCreate : MonoBehaviour
 {
     public GameObject bullet;
+
+   
+
+    Animator animator;
+
+    bool isCapsuleFall = false;
     [SerializeField]
     [Tooltip("プレイヤー")]//カーソルを合わせた際説明表示
     private Transform Player;
@@ -30,12 +36,15 @@ public class Stage1_Boss_AboveThePlayerBulletCreate : MonoBehaviour
     public float bulletwait;
 
     private float time;
-    
+    private GameObject chara;
+
 
     // Start is called before the first frame update
     void Start()
     {
         time = 0.0f;
+        chara = GameObject.Find("chara2");
+        animator = chara.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,6 +68,8 @@ public class Stage1_Boss_AboveThePlayerBulletCreate : MonoBehaviour
                     // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
                     float z = Player.position.z;
 
+                    isCapsuleFall = true;
+
                     // GameObjectを上記で決まったランダムな場所に生成
                     GameObject instance = Instantiate(bullet, new Vector3(0.0f, y, z), bullet.transform.rotation);
 
@@ -79,6 +90,7 @@ public class Stage1_Boss_AboveThePlayerBulletCreate : MonoBehaviour
                     // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
                     float z = Player.position.z;
 
+                    isCapsuleFall = true;
 
                     // GameObjectを上記で決まったランダムな場所に生成
                     GameObject instance = Instantiate(bullet, new Vector3(0.0f, y, z), bullet.transform.rotation);
@@ -92,9 +104,12 @@ public class Stage1_Boss_AboveThePlayerBulletCreate : MonoBehaviour
 
             }
         }
-        
+        else if (S1B_BR.behavior2Active == false)
+        {
+            isCapsuleFall = false;
+        }
 
-
-
+        //アニメーターコントローラー設定
+        animator.SetBool("IsCapsuleFall", isCapsuleFall);
     }
 }

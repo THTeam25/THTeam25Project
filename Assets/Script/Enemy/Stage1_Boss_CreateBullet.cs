@@ -5,6 +5,9 @@ using UnityEngine;
 public class Stage1_Boss_CreateBullet : MonoBehaviour
 {
     public GameObject bullet;
+    private GameObject chara;
+    Animator animator;
+    bool isCapsuleFall = false;
     [SerializeField]
     [Tooltip("生成する範囲A")]//カーソルを合わせた際説明表示
     private Transform Range_leftup;
@@ -22,6 +25,8 @@ public class Stage1_Boss_CreateBullet : MonoBehaviour
     void Start()
     {
         time = bulletwait;
+        chara = GameObject.Find("chara2");
+        animator = chara.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,6 +35,7 @@ public class Stage1_Boss_CreateBullet : MonoBehaviour
         //挙動を変えるスクリプト取得
         GameObject manager_RandomBullet = GameObject.Find("Manager_RandomBullet");
         Boss_RamdomMove S1B_BR = manager_RandomBullet.GetComponent<Boss_RamdomMove>();
+
 
         if (S1B_BR.behavior1Active == true)
         {
@@ -42,6 +48,8 @@ public class Stage1_Boss_CreateBullet : MonoBehaviour
                 // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
                 float z = Random.Range(Range_leftup.position.z, Range_rightdown.position.z);
 
+                isCapsuleFall = true;
+
                 // GameObjectを上記で決まったランダムな場所に生成
                 Instantiate(bullet, new Vector3(0.0f, y, z), bullet.transform.rotation);
 
@@ -49,5 +57,11 @@ public class Stage1_Boss_CreateBullet : MonoBehaviour
                 time = bulletwait;
             }
         }
+        else if (S1B_BR.behavior1Active == false)
+        {
+            isCapsuleFall = false;
+        }
+        //アニメーターコントローラー設定
+        animator.SetBool("IsCapsuleFall", isCapsuleFall);
     }
 }
