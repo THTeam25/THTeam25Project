@@ -7,11 +7,16 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
     public GameObject bullet;
     public GameObject player;
 
-
     public float bulletwait = 1.0f;//弾の発射間隔
     public float bulletspeed = 10.0f;
 
+    private GameObject chara;
     private GameObject soundManager;
+
+    Animator animator;
+
+    bool isShootBall = false;
+    
     [SerializeField]
     private AudioClip clip1;//ball
 
@@ -25,7 +30,8 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
     {
         time = bulletwait;
         soundManager = GameObject.Find("SoundManager");
-
+        chara = GameObject.Find("chara2");
+        animator = chara.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,8 +44,14 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
         if (S1B_BR.behavior3Active == true)
         {
             Shot();
+           
         }
-         
+        else if (S1B_BR.behavior3Active == false)
+        {
+            isShootBall = false;
+        }
+        //アニメーターコントローラー設定
+        animator.SetBool("IsShootBall", isShootBall);
     }
 
 
@@ -64,6 +76,7 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
             //弾を出現させる地点
             Vector3 vec = transform.position + transform.forward * 0.5f; //キャラクターの位置より少し前
             var shot = Instantiate(bullet, vec, Quaternion.identity);//生成
+            isShootBall = true;
             soundManager.GetComponent<SoundManagerScript>().PlaySe(clip1);
             shot.GetComponent<Rigidbody>().velocity = transform.forward.normalized * bulletspeed;
 
