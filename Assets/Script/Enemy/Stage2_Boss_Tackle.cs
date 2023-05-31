@@ -13,11 +13,19 @@ public class Stage2_Boss_Tackle : MonoBehaviour
     public bool reachedPlayer = false;  // プレイヤーの座標に到達したかどうか
     public bool reachedTarget = false;  // 目的地に到達したかどうか
 
+    private GameObject chara;
+    Animator animator;
+    bool isAttack = false;
+
+    private GameObject healthManager;
     private float time = 0.0f;
     private float countnum;
     private void Start()
     {
         countnum = 0;
+        healthManager = GameObject.Find("Manager_Stage2HealthManager ");
+        chara = GameObject.Find("chara2");
+        animator = chara.GetComponent<Animator>();
     }
 
     private void Update()
@@ -36,16 +44,19 @@ public class Stage2_Boss_Tackle : MonoBehaviour
 
             if (!reachedPlayer)  // プレイヤーの座標に到達していない場合
             {
+                isAttack = true;
                 float step = playerSpeed * Time.deltaTime;  // 移動距離を計算する
                 transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);  // プレイヤーの座標に向かって移動する
 
                 if (transform.position == playerTransform.position)  // プレイヤーの座標に到達した場合
                 {
                     reachedPlayer = true;  // 到達フラグを立てる
+                    isAttack = false;
                 }
                 if (time <= 0.0f)
                 {
                     reachedPlayer = true;//到達してないけどフラグ立てる
+                    isAttack = false;
                 }
             }
 
@@ -68,6 +79,8 @@ public class Stage2_Boss_Tackle : MonoBehaviour
                 reachedPlayer = false;
             }
         }
+        //アニメーターコントローラー設定
+        animator.SetBool("IsAttack", isAttack);
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -77,16 +90,23 @@ public class Stage2_Boss_Tackle : MonoBehaviour
             PlayerLifeScript ps = collision.gameObject.GetComponent<PlayerLifeScript>();
 
             ps.TakeDamage(1);
-
+            //reachedPlayer = true;// 到達フラグを立てる
 
         }
         if (collision.gameObject.CompareTag("Screen"))
         {
+            reachedPlayer = true;//到達してないけどフラグ立てる
+            isAttack = false;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Screen"))
+        {
             //Bossの体力のスクリプト
-            Boss_HealthManager stage2_Boss_HealthManager = collision.gameObject.GetComponent<Boss_HealthManager>();
+            Boss_HealthManager stage2_Boss_HealthManager = healthManager.GetComponent<Boss_HealthManager>();
 
             stage2_Boss_HealthManager.TakeDamage(1);
-            Destroy(gameObject); //自身を削除
         }
     }
 }

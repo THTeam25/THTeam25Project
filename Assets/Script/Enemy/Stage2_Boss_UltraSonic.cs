@@ -7,7 +7,6 @@ public class Stage2_Boss_UltraSonic : MonoBehaviour
     public GameObject bullet;
     public GameObject player;
 
-
     public float bulletwait = 1.0f;//弾の発射間隔
     public float bulletspeed = 10.0f;
     public float attackTime = 10.0f;
@@ -36,7 +35,7 @@ public class Stage2_Boss_UltraSonic : MonoBehaviour
         Boss_RamdomMove BRM = manager_Stage2RandomMove.GetComponent<Boss_RamdomMove>();
         if (BRM.behavior2Active == true)
         {
-            if(countnum==0)
+            if (countnum==0)
             {
                 timer = attackTime;
                 countnum = 1;
@@ -61,16 +60,16 @@ public class Stage2_Boss_UltraSonic : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //Playerの体力のスクリプト
-            PlayerLifeScript ps = collision.gameObject.GetComponent<PlayerLifeScript>();
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        //Playerの体力のスクリプト
+    //        PlayerLifeScript ps = collision.gameObject.GetComponent<PlayerLifeScript>();
 
-            ps.TakeDamage(1);
-        }
-    }
+    //        ps.TakeDamage(1);
+    //    }
+    //}
 
     void Shot()
     {

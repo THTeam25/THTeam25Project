@@ -9,17 +9,21 @@ public class UltraSonicBulletScript : MonoBehaviour
     public float upsize = 0.5f;
     //エネミーのリジットボディ
     private Rigidbody enemyRb;
+
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         startTime = Time.time; //発射された時刻を覚えておく
+        transform.LookAt(player.transform);//プレイヤーの方向を向き続ける
     }
 
     // Update is called once per frame
     void Update()
     {
-       
         
+
         this.transform.localScale += new Vector3(0, upsize, 0);
 
         if (startTime + Timer < Time.time) //発射からTimer分の時間経ったら
@@ -28,7 +32,7 @@ public class UltraSonicBulletScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

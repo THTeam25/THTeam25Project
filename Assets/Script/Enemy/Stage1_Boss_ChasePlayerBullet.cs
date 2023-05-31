@@ -24,7 +24,7 @@ public class Stage1_Boss_ChasePlayerBullet : MonoBehaviour
 
     //エネミーのリジットボディ
     private Rigidbody enemyRb;
-
+    
     // Start is called before the first frame update
     void Start()
     {
