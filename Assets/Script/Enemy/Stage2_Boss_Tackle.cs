@@ -26,6 +26,7 @@ public class Stage2_Boss_Tackle : MonoBehaviour
         healthManager = GameObject.Find("Manager_Stage2HealthManager ");
         chara = GameObject.Find("chara2");
         animator = chara.GetComponent<Animator>();
+        //this.gameObject.GetComponent<CapsuleCollider>().isTrigger = false; ;
     }
 
     private void Update()
@@ -77,6 +78,7 @@ public class Stage2_Boss_Tackle : MonoBehaviour
                 countnum = 0;
                 reachedTarget = false;
                 reachedPlayer = false;
+                //this.gameObject.GetComponent<CapsuleCollider>().isTrigger = false; ;
             }
         }
         //アニメーターコントローラー設定
@@ -97,6 +99,7 @@ public class Stage2_Boss_Tackle : MonoBehaviour
         {
             reachedPlayer = true;//到達してないけどフラグ立てる
             isAttack = false;
+
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -107,6 +110,7 @@ public class Stage2_Boss_Tackle : MonoBehaviour
             Boss_HealthManager stage2_Boss_HealthManager = healthManager.GetComponent<Boss_HealthManager>();
 
             stage2_Boss_HealthManager.TakeDamage(1);
+            //this.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
         }
     }
 }

@@ -3092,7 +3092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1196816393965519632, guid: 46ef71e8997a07c4589f8b38cdcbf4fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 1196816393965519632, guid: 46ef71e8997a07c4589f8b38cdcbf4fb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3142,6 +3142,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1196816393965519639, guid: 46ef71e8997a07c4589f8b38cdcbf4fb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ef71e8997a07c4589f8b38cdcbf4fb, type: 3}
 --- !u!1001 &1007005665
@@ -3451,7 +3455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067939727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -295}
+  m_LocalPosition: {x: 0.2, y: 5, z: -295}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6844,6 +6848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 147642130757036968}
   - component: {fileID: 147642130757036969}
+  - component: {fileID: 147642130757036970}
   m_Layer: 0
   m_Name: 'Manager_Stage2HealthManager '
   m_TagString: Untagged
@@ -6880,10 +6885,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  currentHealth: 0
   HP1: {fileID: 147642131396495650}
   HP2: {fileID: 147642129384866398}
   HP3: {fileID: 147642130622052791}
+  takedamage: 0
+--- !u!114 &147642130757036970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147642130757036967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daabc64b70ad0884986f1f060f068fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: Stage03
+  bTimeFlag: 0
 --- !u!1 &147642130826105595
 GameObject:
   m_ObjectHideFlags: 0
@@ -7301,6 +7320,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2d1f61a420ffcad4d901db597280a073, type: 2}
+    - target: {fileID: 6443316874798784870, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6443316874798784889, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
       propertyPath: m_TagString
       value: Screen
@@ -7316,6 +7339,10 @@ PrefabInstance:
     - target: {fileID: 6443316875216123235, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
       propertyPath: m_TagString
       value: Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443316875216123240, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6443316875216123244, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
       propertyPath: m_LocalScale.x
@@ -7345,6 +7372,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6443316875835763772, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6443316875835763773, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -7357,6 +7388,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2d1f61a420ffcad4d901db597280a073, type: 2}
+    - target: {fileID: 6443316875835763775, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6653992194901212846, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -7413,7 +7448,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6443316875835763775, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 986fea12b90b5cb4ba646974b27e2eb5, type: 3}
 --- !u!1001 &667051454232984624
 PrefabInstance:
@@ -7505,6 +7541,10 @@ PrefabInstance:
     - target: {fileID: 667051453934670086, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 715739928498131478, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775779350508940248, guid: 2a33eda480e15864d8ec640a5a15703c, type: 3}
       propertyPath: moviecamera
@@ -7847,7 +7887,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.045
+  m_Radius: 0.04
   m_Height: 0.09
   m_Direction: 1
   m_Center: {x: 0.00064105185, y: 0.038, z: -0.0027512363}
@@ -7866,7 +7906,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &6006922527385306682
 Animator:
   serializedVersion: 5
